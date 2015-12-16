@@ -1,0 +1,55 @@
+name = Webskillet Base Theme
+description = mobile-first base HTML5 theme for Webskillet development (2016 version)
+package = Core
+version = 1.0-alpha1
+core = 7.x
+engine = phptemplate
+stylesheets[screen, projection][] = css/includes/reset.css
+stylesheets[screen, projection][] = css/includes/bootstrap-gridonly.min.css
+stylesheets[screen, projection][] = css/screen.css
+stylesheets[print][] = css/print.css
+scripts[] = js/modernizr.js
+scripts[] = js/hammer.min.js
+scripts[] = js/jquery.validate.js
+scripts[] = js/wsutil.js
+
+features[] = logo
+features[] = name
+features[] = slogan
+features[] = node_user_picture
+features[] = comment_user_picture
+features[] = comment_user_verification
+features[] = favicon
+features[] = main_menu
+features[] = secondary_menu
+
+regions[header]         = Header
+regions[navigation]     = Navigation
+regions[highlighted]    = Highlighted
+regions[content]        = Content
+regions[sidebar_first]  = First Sidebar
+regions[sidebar_second] = Second Sidebar
+regions[prefooter1]     = Prefooter 1
+regions[prefooter2]		= Prefooter 2
+regions[utility]		= Utility
+regions[footer]         = Footer
+regions[reveal_left]	= Reveal Left
+regions[reveal_right]	= Reveal Right
+regions[modals]			= Modals
+regions[page_top]       = Page top
+regions[page_bottom]    = Page bottom
+
+; default settings
+settings[webskillet_navigation_title] = 'Navigation'
+settings[webskillet_navigation_icon] = 'fa-bars'
+settings[webskillet_navigation_style] = 'default'
+settings[webskillet_google_webfonts] = ''
+settings[webskillet_custom_css] = ''
+settings[webskillet_custom_js] = ''
+settings[webskillet_twitter_handle] = ''
+settings[webskillet_twitter_field] = ''
+settings[webskillet_twitter_hashtag] = ''
+settings[webskillet_block_classes] = ''
+settings[webskillet_block_icons] = ''
+
+

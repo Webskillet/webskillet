@@ -1,0 +1,126 @@
+// typography
+
+// 1.1 Body
+body { color: $base-text; font: 93.75%/1.6em $sans-serif; }
+
+// 1.2 Headers
+h1, h2, h3, h4, h5, h6 { font-weight: normal; margin: 0 0 1em; font-family: $sans-serif; }
+h1 { font-size: 2em; }
+h2 { font-size: 1.5em; }
+h3 { font-size: 1.333em; }
+h4 { font-size: 1.2em; font-weight: bold; }
+h5 { font-size: 1.0666em; font-weight: bold; margin-bottom: 0; }
+h5 { font-size: 1em; font-weight: bold; margin-bottom: 0; }
+
+// 1.3 Text
+p { margin-bottom: 1.5em; }
+p.leftalign { text-align: left; }
+p.centeralign { text-align: center; }
+p.rightalign { text-align: right; }
+address { font-style: normal; margin-bottom: 1.5em; }
+blockquote { margin: 0 0 0 2em; padding-bottom: 1.8em; }
+blockquote p { margin-bottom: 0.75em; }
+
+// 1.4 Lists
+ul, ol { margin: 0 0 1.5em 2em; }
+ul ul, ul ol, ol ul, ol ol { margin-bottom: 0; }
+dl { margin: 0 0 1.5em 0; }
+dt { font-weight: bold; }
+dd { margin: 0 0 1.5em 2em; }
+dd ul, dd ol { margin-left: 0; }
+
+.item-list ul { margin: 0; padding: 0; }
+.item-list ul li { margin: 0; padding: 0; list-style: none outside none; }
+ul.menu { margin: 0; }
+ul.menu li { margin: 0; padding: 0; }
+ul.menu ul { margin-left: 1.5em; }
+ul.inline, ul.links.inline { clear: both; margin: 0; }
+ul.inline li { margin: 0; padding: 0 1em 0 0; }
+ul.inline li.last { padding: 0; }
+ul li.leaf, ul li.collapsed, ul li.expanded { list-style: none outside none; }
+
+// 1.5 Links
+a { text-decoration: none; }
+a:link { color: $ws-blue; }
+a:visited { color: $ws-blue; }
+.no-touch a:hover { color: $ws-red; }
+a:active { color: $ws-blue; }
+
+// 1.6 Images
+img { max-width: 100%; height: auto !important; }
+.image-left,
+.image-right,
+.image-center { display: block; width: auto; margin: 0 auto 1.5em; }
+
+// 1.7 Tables
+th, td { padding: 10px; }
+
+// 1.8 Form elements
+input, select, textarea { border: 1px solid $light-gray; color: $base-text; padding: 0.5em; font-family: $sans-serif; width: 100%; outline: 0; }
+input:focus, select:focus, textarea:focus { border-color: $base-text; }
+input[type="checkbox"],input[type="radio"],input[type="submit"],input[type="image"] { width: auto; }
+input[type="image"] { border: 0; outline: invert none medium; }
+input[type="search"] { -webkit-appearance: none; moz-appearance: none; }
+input, select { max-width: 400px; }
+fieldset { margin: 2em 0; border-color: $light-gray; }
+legend { font: 1.333em $sans-serif; color: #333; border: 1px solid $light-gray; padding: 2px 15px; background: $very-light-gray; }
+legend + * { -webkit-margin-top-collapse: separate; }
+.form-type-checkbox label, .form-type-radio label { color: $medium-gray; }
+input.form-checkbox:checked + label, input.form-radio:checked + label { color: $base-text; }
+input[type="submit"], button, a.button {
+  background: $very-light-gray;
+  border-radius: 0;
+  color: $base-text;
+  padding: 0.5em 1em;
+  margin-right: 1em;
+  border: none;
+  font-size: 1em;
+  cursor: pointer;
+}
+.no-touch input[type="submit"]:hover, .no-touch button:hover, .no-touch a.button:hover {
+  background: $light-gray;
+}
+
+// 1.9 Drupal forms
+.form-item { margin: 2em 0; }
+.form-item .description, .filter-guidelines { font-size: 0.8em; line-height: 1.1666em; display: block; clear: left; color: $medium-gray; margin-top: 5px; }
+label { font-weight: normal; }
+.webform-client-form .description, .fieldset-description { margin-bottom: 1.5em; }
+.fieldset-description { margin-top: 20px; }
+div.error, .error { color: $ws-red; }
+.form-item input.error, .form-item textarea.error, .form-item select.error { border: 1px solid $ws-red; box-shadow: none; -moz-box-shadow: none; -webkit-box-shadow: none; }
+
+a.tabledrag-handle .handle { box-sizing: content-box; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; }
+
+.image-widget-data { width: 100%; max-width: 400px; }
+.form-managed-file .form-file { width: 73%; }
+.form-managed-file .form-submit { width: 25%; margin-left: 2%; }
+
+.node-form .field-type-image table { width: 100%; }
+.node-form .field-type-image td { vertical-align: middle; }
+.node-form .field-type-image td .image-widget { float: left; }
+
+.filter-wrapper .form-item { margin: 0; }
+
+.vertical-tabs ul.vertical-tabs-list li { font-size: 0.8em; line-height: 1.167em; }
+.vertical-tabs ul.vertical-tabs-list li a { padding: 1em 0.6em; }
+.vertical-tabs ul.vertical-tabs-list li a:hover { outline: 0; }
+.vertical-tabs ul.vertical-tabs-list li a:hover,
+.vertical-tabs ul.vertical-tabs-list li a:active,
+.vertical-tabs ul.vertical-tabs-list li a:focus { background: $smoke; }
+.vertical-tabs ul.vertical-tabs-list li.selected a:hover,
+.vertical-tabs ul.vertical-tabs-list li.selected a:active,
+.vertical-tabs ul.vertical-tabs-list li.selected a:focus { background: transparent; }
+.vertical-tabs ul.vertical-tabs-list li a:hover strong,
+.vertical-tabs ul.vertical-tabs-list li a:active strong,
+.vertical-tabs ul.vertical-tabs-list li a:focus strong { text-decoration: none; }
+.vertical-tabs fieldset.vertical-tabs-pane { font-size: 0.8em; line-height: 1.167em; }
+.vertical-tabs fieldset.vertical-tabs-pane .form-item { margin: 1em 0; }
+.vertical-tabs fieldset.vertical-tabs-pane .description { font-size: 1em; }
+
+// iPad in portrait mode or larger //
+@media screen and (min-width: 768px) {
+	.image-left { float: left; margin: 0 20px 20px 0; max-width: 50%; }
+	.image-right { float: right; margin: 0 0 20px 20px; max-width: 50%; }
+	.image-center { display: block; width: auto; margin: 0 auto 1.5em; }
+}

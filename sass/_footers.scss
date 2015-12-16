@@ -1,0 +1,13 @@
+// footers
+
+#footer-wrapper.fixed { position: fixed; left: 0; right: 0; bottom: 0; }
+#footer #site-credit { text-align: center; }
+
+// iPad in portrait mode or larger
+@media screen and (min-width: 768px) {
+	// move utility region to top of the page
+	#utility { position: absolute; top: 0; left: 0; width: 100%; }
+	#utility .region, #utility-nav { position: relative; }
+	#utility-menu-links { position: absolute; right: 20px; top: 10px; display: block; }
+	#utility .block { position: absolute; }
+}

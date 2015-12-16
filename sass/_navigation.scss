@@ -1,0 +1,8 @@
+// navigation
+
+// iPad in portrait mode or larger
+@media screen and (min-width: 768px) {
+	#navigation ul.main-menu li { position: relative; }
+	#navigation li ul.main-menu { position: absolute; left: -999em; }
+	#navigation li ul.main-menu.dropped { left: auto; }
+}
