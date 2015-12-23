@@ -3,7 +3,7 @@ Webskillet base theme
 
 Mobile-first HTML5 base theme for Drupal 7
 
-alpha2 release - December 2015
+7.x-1.0-alpha2 - December 2015
 
 Features:
 * regions for modals and side-reveals (just put blocks in the regions and links to them will open them as modals or reveals - if the user login block is put in either the modal or a reveal region, all links to /user/login will open the block, and the destination attribute will follow).
@@ -24,8 +24,5 @@ Features:
 Plays well with the following modules:
 * [__Special Menu Items__](https://www.drupal.org/project/special_menu_items): "nolink" menu items which have child menus will trigger pull-downs if clicked on
 * [__Hybridauth Social Login__](https://www.drupal.org/project/hybridauth): changes the confusing "Hybridauth Identities" tabs and links to "Social Identities"
-
-Roadmap:
-* reponsive support for one or more mega-menu modules - intending to investigate [ultimenu](https://www.drupal.org/project/ultimenu)
 
 Feature requests should be directed to [Jonathan Kissam](https://jonathankissam.wordpress.com/about/)
