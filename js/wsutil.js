@@ -169,6 +169,9 @@ wsUtil = {
 				jQuery(this).siblings('ul.main-menu').removeClass('open');
 			}
 		});
+		jQuery('#navigation li.expanded > .nolink').click(function(){
+			jQuery(this).siblings('.menu-toggle').click();
+		});
 		jQuery('.navigation-header').click(function(){
 			jQuery(this).siblings('.main-menu').toggleClass('open');
 			if (jQuery(window).width() < 768) { wsUtil.closeReveal(); }
@@ -178,6 +181,17 @@ wsUtil = {
 		var menuHammer = new Hammer(jQuery('.mobile-style-default #navigation > ul.main-menu')[0]);
 		menuHammer.on('swipeleft', function(event){
 			if (jQuery(window).width() < 768) { jQuery('#navigation > ul.main-menu').removeClass('open'); }
+		});
+
+		jQuery('#wrapper').click(function(event){
+			var $target = jQuery(event.target);
+			if ( !$target.hasClass('navigation-header') && !$target.closest('.navigation-header').length && !$target.hasClass('main-menu') && !$target.closest('.main-menu').length && (jQuery(window).width() < 768) ) {
+				jQuery('#navigation > ul.main-menu').removeClass('open');
+			}
+		});
+
+		jQuery(document).keyup(function(event){
+			if ( (event.keyCode == 27) && (jQuery(window).width() < 768) ) { jQuery('#navigation > ul.main-menu').removeClass('open'); }
 		});
 	},
 
@@ -220,6 +234,22 @@ wsUtil = {
 			wsUtil.closeReveal();
 			event.preventDefault();
 		});
+
+		jQuery('#modals-wrapper').click(function(event){
+			var $target = jQuery(event.target);
+			if ( !$target.hasClass('block') && !$target.closest('.block').length ) {
+				wsUtil.closeModal();
+			}
+		});
+
+		jQuery('#wrapper').click(function(event){
+			var $target = jQuery(event.target);
+			if (!$target.is('a') && !$target.hasClass('reveal-trigger')) {
+				wsUtil.closeReveal();
+			}
+		});
+
+		jQuery(document).keyup(function(event){ if (event.keyCode == 27) { wsUtil.closeModal(); wsUtil.closeReveal(); } });
 
 		var bodyHammer = new Hammer(document.body);
 		bodyHammer.on('swipeleft', function(event){ wsUtil.closeReveal(); });
@@ -296,8 +326,8 @@ wsUtil = {
 		$el.css('display','block').addClass('open');
 		setTimeout(function(){jQuery('body').addClass('modal-open');}, 0)
 
-		if (options && options.focusInput && ($el.find('input[type="text"]').length > 0) && jQuery('html').hasClass('no-touch')) {
-			$el.find('input[type="text"]:first').focus();
+		if (options && options.focusInput && ($el.find('input').length > 0) && jQuery('html').hasClass('no-touch')) {
+			$el.find('input:first').focus();
 		}
 	},
 

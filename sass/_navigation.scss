@@ -9,18 +9,25 @@ ul.main-menu li.menu-dismiss { position: absolute; top: 5px; right: 5px; font-si
 #navigation ul.main-menu.open { position: relative; left: auto; }
 #navigation li ul.main-menu { clear: both; padding: 0 1em; }
 #navigation ul.main-menu li { padding: 0; }
-#navigation ul.main-menu li a { display: block; padding: 0.5em 1em; line-height: 1em; }
-#navigation ul.main-menu li.expanded > a { float: left; padding-right: 0.5em; }
+#navigation ul.main-menu li a, #navigation ul.main-menu li span.nolink, #navigation ul.main-menu li span.separator { display: block; padding: 0.5em 1em; line-height: 1em; }
+#navigation ul.main-menu li.expanded > a, #navigation ul.main-menu li.expanded > span.nolink { float: left; padding-right: 0.25em; cursor: pointer; }
 #navigation ul.main-menu li.expanded:after { content: ''; display: table; clear: both; }
 #navigation ul.main-menu li.expanded ul { clear: both; }
-#navigation ul.main-menu li .menu-toggle { float: right; display: block; font-size: 1.333em; line-height: 0.5em; margin: 0.3em 0; padding: 0 0.33333em; border-left: 1px solid $very-dark-gray; cursor: pointer; }
+#navigation ul.main-menu li .menu-toggle { float: right; display: block; font-size: 1.333em; line-height: 0.5em; margin: 0.3em 0; padding: 0 1em 0 0.33333em; /* border-left: 1px solid $very-dark-gray; */ cursor: pointer; }
+
+#navigation ul.main-menu span.separator hr { margin: 0; border-color: $light-gray; }
 
 .mobile-style-default #navigation > ul.main-menu { position: fixed; width: 300px; overflow-x: hidden; overflow-y: auto; top: 0; bottom: 0; left: -300px; @include transition-property(left); @include transition-duration(0.15s); @include transition-timing-function(linear); z-index: 500; background: $very-light-gray; font-size: 1.6em; }
+.mobile-style-default #navigation ul.main-menu li a,
+.mobile-style-default #navigation ul.main-menu li span.nolink,
+.mobile-style-default #navigation ul.main-menu li span.separator { padding: 0.5em 0.8333em; }
+.mobile-style-default #navigation ul.main-menu li .menu-toggle { padding-right: 0.8333em; }
 .mobile-style-default #navigation ul.main-menu li { border-bottom: 1px solid $light-gray; }
 .mobile-style-default #navigation li ul.main-menu li { border-bottom: none; }
 .mobile-style-default #navigation ul.main-menu li.first { padding-right: 2em; } 
 .mobile-style-default #navigation ul.main-menu li.menu-dismiss { font-size: 1.5em; border-bottom: none; }
 .mobile-style-default #navigation > ul.main-menu.open { left: 0; }
+.mobile-style-default #navigation ul.main-menu span.separator hr { border-width: 3px; }
 
 // iPad in portrait mode or larger
 @media screen and (min-width: 768px) {
@@ -34,13 +41,21 @@ ul.main-menu li.menu-dismiss { position: absolute; top: 5px; right: 5px; font-si
 	#navigation li ul li { float: none; }
 	#navigation li ul.main-menu { position: absolute; left: -999em; top: 2em; width: 100%; background: $very-light-gray; z-index: 500; }
 	#navigation li ul.main-menu.open { position: absolute; left: auto; padding: 0; }
-	#navigation li ul li .menu-toggle { padding-right: 0.25em; border-left: none; }
 	#navigation li ul li .menu-toggle .fa-caret-down:before { content: "\f0da"; }
 	#navigation li ul li .menu-toggle .fa-caret-up:before { content: "\f0d9"; }
 	#navigation li li ul.main-menu.open { left: 100%; top: 0; }
+	#navigation > ul.main-menu > li > span.separator { padding: 0; margin: 0.25em 0; height: 1.6em; border-left: 1px solid $light-gray; }
 
 	.mobile-style-default #navigation > ul.main-menu { width: auto; position: relative; top: auto; bottom: auto; left: auto; overflow: visible; font-size: 1em; }
 	.mobile-style-default #navigation ul.main-menu li { border-bottom: none; }
 	.mobile-style-default #navigation ul.main-menu li.first { padding-right: 0; }
 	.mobile-style-default #navigation > ul.main-menu.open { left: auto; }
+	.mobile-style-default #navigation ul.main-menu li a,
+	.mobile-style-default #navigation ul.main-menu li span.nolink,
+	.mobile-style-default #navigation ul.main-menu li span.separator { padding: 0.5em 1em; }
+	.mobile-style-default #navigation ul.main-menu li .menu-toggle { padding-right: 1em; }
+	.mobile-style-default #navigation ul.main-menu li.expanded > a,
+	.mobile-style-default #navigation ul.main-menu li.expanded > span.nolink { padding-right: 0.25em; }
+	.mobile-style-default #navigation > ul.main-menu > li > span.separator { padding: 0; }
+	.mobile-style-default #navigation ul.main-menu span.separator hr { border-width: 1px; }
 }

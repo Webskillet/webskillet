@@ -22,13 +22,13 @@ body { width: 100%; overflow-x: hidden; }
 .reveal-right #wrapper { left: -300px; }
 .reveal-right #reveal-right-wrapper { z-index: 1; }
 .reveal-left.reveal-right #wrapper { left: 0; }
-.reveal-dismiss.primary { position: absolute; top: 10px; right: 10px; cursor: pointer; font-size: 2em; }
+.reveal-dismiss.primary { position: absolute; top: 5px; right: 5px; cursor: pointer; font-size: 2.4em; }
 .reveal .block { display: none; }
-.reveal .block > h2 { padding: 10px 40px 10px 10px; }
-.reveal .block > .content { padding: 10px; }
+.reveal .block > h2 { padding: 10px 20px; }
+.reveal .block > .content { padding: 10px 20px; }
 
-.admin-menu .reveal { padding-top: 60px; }
-.admin-menu .reveal-dismiss.primary { top: 40px; }
+.admin-menu .reveal { padding-top: 59px; }
+.admin-menu .reveal-dismiss.primary { top: 34px; }
 
 // for iPads in portrait mode or larger, modals do not fill the entire screen, and primary dismiss button is fixed to the upper-right-hand corner of the screen
 @media screen and (min-width: 768px) {

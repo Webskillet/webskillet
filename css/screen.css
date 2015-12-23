@@ -460,15 +460,16 @@ ul.main-menu li.menu-dismiss {
   padding: 0;
 }
 
-#navigation ul.main-menu li a {
+#navigation ul.main-menu li a, #navigation ul.main-menu li span.nolink, #navigation ul.main-menu li span.separator {
   display: block;
   padding: 0.5em 1em;
   line-height: 1em;
 }
 
-#navigation ul.main-menu li.expanded > a {
+#navigation ul.main-menu li.expanded > a, #navigation ul.main-menu li.expanded > span.nolink {
   float: left;
-  padding-right: 0.5em;
+  padding-right: 0.25em;
+  cursor: pointer;
 }
 
 #navigation ul.main-menu li.expanded:after {
@@ -487,9 +488,14 @@ ul.main-menu li.menu-dismiss {
   font-size: 1.333em;
   line-height: 0.5em;
   margin: 0.3em 0;
-  padding: 0 0.33333em;
-  border-left: 1px solid #333333;
+  padding: 0 1em 0 0.33333em;
+  /* border-left: 1px solid $very-dark-gray; */
   cursor: pointer;
+}
+
+#navigation ul.main-menu span.separator hr {
+  margin: 0;
+  border-color: #CCCCCC;
 }
 
 .mobile-style-default #navigation > ul.main-menu {
@@ -517,6 +523,16 @@ ul.main-menu li.menu-dismiss {
   font-size: 1.6em;
 }
 
+.mobile-style-default #navigation ul.main-menu li a,
+.mobile-style-default #navigation ul.main-menu li span.nolink,
+.mobile-style-default #navigation ul.main-menu li span.separator {
+  padding: 0.5em 0.8333em;
+}
+
+.mobile-style-default #navigation ul.main-menu li .menu-toggle {
+  padding-right: 0.8333em;
+}
+
 .mobile-style-default #navigation ul.main-menu li {
   border-bottom: 1px solid #CCCCCC;
 }
@@ -536,6 +552,10 @@ ul.main-menu li.menu-dismiss {
 
 .mobile-style-default #navigation > ul.main-menu.open {
   left: 0;
+}
+
+.mobile-style-default #navigation ul.main-menu span.separator hr {
+  border-width: 3px;
 }
 
 @media screen and (min-width: 768px) {
@@ -594,11 +614,6 @@ ul.main-menu li.menu-dismiss {
     padding: 0;
   }
 
-  #navigation li ul li .menu-toggle {
-    padding-right: 0.25em;
-    border-left: none;
-  }
-
   #navigation li ul li .menu-toggle .fa-caret-down:before {
     content: "\f0da";
   }
@@ -610,6 +625,13 @@ ul.main-menu li.menu-dismiss {
   #navigation li li ul.main-menu.open {
     left: 100%;
     top: 0;
+  }
+
+  #navigation > ul.main-menu > li > span.separator {
+    padding: 0;
+    margin: 0.25em 0;
+    height: 1.6em;
+    border-left: 1px solid #CCCCCC;
   }
 
   .mobile-style-default #navigation > ul.main-menu {
@@ -632,6 +654,29 @@ ul.main-menu li.menu-dismiss {
 
   .mobile-style-default #navigation > ul.main-menu.open {
     left: auto;
+  }
+
+  .mobile-style-default #navigation ul.main-menu li a,
+  .mobile-style-default #navigation ul.main-menu li span.nolink,
+  .mobile-style-default #navigation ul.main-menu li span.separator {
+    padding: 0.5em 1em;
+  }
+
+  .mobile-style-default #navigation ul.main-menu li .menu-toggle {
+    padding-right: 1em;
+  }
+
+  .mobile-style-default #navigation ul.main-menu li.expanded > a,
+  .mobile-style-default #navigation ul.main-menu li.expanded > span.nolink {
+    padding-right: 0.25em;
+  }
+
+  .mobile-style-default #navigation > ul.main-menu > li > span.separator {
+    padding: 0;
+  }
+
+  .mobile-style-default #navigation ul.main-menu span.separator hr {
+    border-width: 1px;
   }
 }
 /* 5.0 Content */
@@ -1094,10 +1139,10 @@ body {
 
 .reveal-dismiss.primary {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 5px;
+  right: 5px;
   cursor: pointer;
-  font-size: 2em;
+  font-size: 2.4em;
 }
 
 .reveal .block {
@@ -1105,19 +1150,19 @@ body {
 }
 
 .reveal .block > h2 {
-  padding: 10px 40px 10px 10px;
+  padding: 10px 20px;
 }
 
 .reveal .block > .content {
-  padding: 10px;
+  padding: 10px 20px;
 }
 
 .admin-menu .reveal {
-  padding-top: 60px;
+  padding-top: 59px;
 }
 
 .admin-menu .reveal-dismiss.primary {
-  top: 40px;
+  top: 34px;
 }
 
 @media screen and (min-width: 768px) {
