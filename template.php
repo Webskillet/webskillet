@@ -25,7 +25,22 @@ function webskillet_preprocess_html(&$variables) {
   );
   drupal_add_html_head($meta_viewport, 'meta_viewport');
 
-  drupal_add_js('jQuery.extend(Drupal.settings, { "pathToTheme": "' . drupal_get_path('theme', variable_get('theme_default', NULL)) . '" });', 'inline');
+  $mobileStyle = theme_get_setting('webskillet_navigation_style');
+  $variables['classes_array'][] = 'mobile-style-'.$mobileStyle;
+
+  $settings = array(
+    'pathToTheme' => drupal_get_path('theme', variable_get('theme_default', NULL)),
+    'themeOptions' => array(
+      'validateForms' => theme_get_setting('webskillet_js_validate_forms'),
+      'fixFooter' => theme_get_setting('webskillet_js_fix_footer'),
+      'shortenLinks' => theme_get_setting('webskillet_js_shorten_links'),
+      'externalLinks' => theme_get_setting('webskillet_external_links'),
+      'externalLinksExceptions' => theme_get_setting('webskillet_external_links_exceptions'),
+      'sectionNavigationSelector' => theme_get_setting('webskillet_section_navigation_selector'),
+      'sectionNavigationPadding' => theme_get_setting('webskillet_section_navigation_padding'),
+    ),
+  );
+  drupal_add_js('jQuery.extend(Drupal.settings, '.json_encode((object) $settings).');', 'inline');
 
   $q = isset($_GET['q']) ? $_GET['q'] : 'front';
   $page_id = str_replace('/','-',$q);
@@ -188,6 +203,18 @@ function webskillet_preprocess_page(&$variables) {
   } else {
 	$variables['secondary_menu'] = FALSE;
   }
+
+/*
+	if (isset($variables['tabs']['#primary'])) {
+		foreach($variables['tabs']['#primary'] as $index => $link) {
+			if (isset($link['#link']['title']) && ($link['#link']['title'] == 'HybridAuth')) {
+				$variables['tabs']['#primary'][$index]['#link']['title'] = 'Social Identities';
+			}
+		}
+		$variables['tabs_debug'] = '<pre style="font-size: 10px; margin: 2em 0;">'.print_r($variables['tabs']['#primary'],1).'</pre>';
+	}
+*/
+
 }
 
 /**
@@ -200,6 +227,11 @@ function webskillet_menu_local_tasks(&$variables) {
     $variables['primary']['#prefix'] = '<h2 class="element-invisible">' . t('Primary tabs') . '</h2>';
     $variables['primary']['#prefix'] .= '<ul class="tabs primary clearfix">';
     $variables['primary']['#suffix'] = '</ul>';
+		foreach($variables['primary'] as $index => $link) {
+			if (isset($link['#link']['title']) && ($link['#link']['title'] == 'HybridAuth')) {
+				$variables['primary'][$index]['#link']['title'] = 'Social Identities';
+			}
+		}
     $output .= drupal_render($variables['primary']);
   }
   if (!empty($variables['secondary'])) {
@@ -279,11 +311,12 @@ function webskillet_preprocess_block(&$variables) {
 }
 
 /**
- * Changes the search form to use the "search" input element of HTML5 and the input.populate in wsutil
- * also add class="search" so IE7 can find it using css selectors
+ * modify table headers to change "HybridAuth Identities" to "Social Identities"
  */
-function webskillet_preprocess_search_block_form(&$variables) {
-	// to do
+function webskillet_user_view_alter(&$build) {
+	if (isset($build['hybridauth_identities'])) {
+		$build['hybridauth_identities']['#title'] = 'Social Identities';
+	}
 }
 
 /**

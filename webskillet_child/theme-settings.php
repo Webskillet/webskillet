@@ -31,24 +31,72 @@ function webskillet_child_form_system_theme_settings_alter(&$form, $form_state) 
 	'#title' => t('Mobile Navigation Style'),
 	'#options' => array(
 		'default' => 'Default',
-		'reveal-left' => 'Standard',
-		'reveal-right' => 'Slide',
+		'basic' => 'Basic',
 	),
-	'#description' => t('<strong>Default:</strong> Menu appears in a modal, with child menus sliding in from the right side<br /><strong>Reveal Left or Reveal Right:</strong> Menu appears in the left or right reveal, with child menus opening as drop-downs'),
+	'#description' => t('<strong>Default:</strong> On devices smaller than an iPad (768 pixels), clicking on navigation header slides menu in from the left side, with sub-menus opening downward<br /><strong>Basic:</strong> On devices smaller than an iPad (768 pixels), clicking on navigation header opens menu directly below the header, with sub-menus opening downward'),
 	'#default_value' => theme_get_setting('webskillet_navigation_style'),
   );
 
+  $form['webskillet_section_navigation'] = array
+  (
+	'#type' => 'fieldset',
+	'#title' => 'In-page section navigation',
+	'#collapsible' => true,
+	'#collapsed' => (theme_get_setting('webskillet_section_navigation_selector') != '.section-navigation') || (theme_get_setting('webskillet_section_navigation_padding') != 20),
+  );
+  $form['webskillet_section_navigation']['webskillet_section_navigation_selector'] = array
+  (
+	'#type' => 'textfield',
+	'#title' => t('Section Navigation Selector'),
+	'#description' => t('jQuery selector to trigger in-page section navigation'),
+	'#default_value' => theme_get_setting('webskillet_section_navigation_selector'),
+  );
+  $form['webskillet_section_navigation']['webskillet_section_navigation_padding'] = array
+  (
+	'#type' => 'textfield',
+	'#title' => t('Section Navigation Padding'),
+	'#description' => t('Number of pixels to leave at the top of the page when scrolling to another section of the page (increase if you are using a fixed header)'),
+	'#default_value' => theme_get_setting('webskillet_section_navigation_padding'),
+  );
 
-  $form['webskillet_google_webfonts'] = array
+  $form['webskillet_external'] = array
+  (
+	'#type' => 'fieldset',
+	'#title' => 'External link handling',
+	'#collapsible' => true,
+	'#collapsed' => !theme_get_setting('webskillet_external_links_exceptions'),
+  );
+  $form['webskillet_external']['webskillet_external_links'] = array(
+	'#type' => 'radios',
+	'#title' => t('Open any links that go offsite in a new window'),
+	'#default_value' => theme_get_setting('webskillet_external_links'),
+	'#options' => array(
+		1 => 'Yes',
+		0 => 'No',
+	),
+  );
+  $form['webskillet_external']['webskillet_external_links_exceptions'] = array(
+	'#type' => 'textfield',
+	'#title' => t('Exceptions'),
+    '#description' => t('jQuery selector for external links that should <strong>not</strong> be opened in a new window'),
+	'#default_value' => theme_get_setting('webskillet_external_links_exceptions'),
+  );
+
+  $form['webskillet_style'] = array
+  (
+	'#type' => 'fieldset',
+	'#title' => 'Style settings (css and fonts)',
+	'#collapsible' => true,
+	'#collapsed' => !(theme_get_setting('webskillet_google_webfonts') || theme_get_setting('webskillet_custom_css')),
+  );
+  $form['webskillet_style']['webskillet_google_webfonts'] = array
   (
 	'#type' => 'textfield',
 	'#title' => t('Google webfonts'),
 	'#description' => t('Will be appended to //fonts.googleapis.com/css?family='),
 	'#default_value' => theme_get_setting('webskillet_google_webfonts'),
   );
-
-
-  $form['webskillet_custom_css'] = array
+  $form['webskillet_style']['webskillet_custom_css'] = array
   (
     '#type' => 'textarea',
     '#title' => t('Custom CSS'),
@@ -58,7 +106,41 @@ function webskillet_child_form_system_theme_settings_alter(&$form, $form_state) 
     '#rows' => 7,
   );
 
-  $form['webskillet_custom_js'] = array
+  $form['webskillet_js'] = array
+  (
+	'#type' => 'fieldset',
+	'#title' => 'Javascript',
+	'#collapsible' => true,
+	'#collapsed' => !theme_get_setting('webskillet_custom_js'),
+  );
+  $form['webskillet_js']['webskillet_js_validate_forms'] = array(
+	'#type' => 'radios',
+	'#title' => t('Validate all forms using jquery validate?'),
+	'#default_value' => theme_get_setting('webskillet_js_validate_forms'),
+	'#options' => array(
+		1 => 'Yes',
+		0 => 'No',
+	),
+  );
+  $form['webskillet_js']['webskillet_js_fix_footer'] = array(
+	'#type' => 'radios',
+	'#title' => t('Fix footer to bottom of the window if page content is shorter than window height?'),
+	'#default_value' => theme_get_setting('webskillet_js_fix_footer'),
+	'#options' => array(
+		1 => 'Yes',
+		0 => 'No',
+	),
+  );
+  $form['webskillet_js']['webskillet_js_shorten_links'] = array(
+	'#type' => 'radios',
+	'#title' => t('Shorten any links that don\'t fit in their parent container?'),
+	'#default_value' => theme_get_setting('webskillet_js_shorten_links'),
+	'#options' => array(
+		1 => 'Yes',
+		0 => 'No',
+	),
+  );
+  $form['webskillet_js']['webskillet_custom_js'] = array
   (
     '#type' => 'textarea',
     '#title' => t('Custom Javascript'),

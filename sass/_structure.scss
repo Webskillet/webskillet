@@ -1,5 +1,6 @@
 html, body { height: 100%; }
+body.admin-menu { margin-top: 0 !important; padding-top: 29px !important; }
 .chromeframe { margin: 0.2em 0; background: $light-gray; color: $base-text; padding: 0.2em 0; }
-#wrapper { width: 100%; min-height: 100%; position: relative; }
+#wrapper { width: 100%; min-height: 100%; position: relative; left: 0; right: 0; z-index: 5; background: #fff; overflow-x: auto; }
 #skip-link { position: absolute; }
 

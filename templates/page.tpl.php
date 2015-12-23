@@ -119,23 +119,24 @@
 <div id="footer-wrapper">
   <footer id="footer" role="contentinfo" class="container">
     <?php print render($page['footer']) ?>
-	<div id="site-credit"><a href="http://www.webskillet.com">website by Webskillet</a></div>
   </footer> <!-- /#footer -->
 </div>
 
 </div> <!-- /#wrapper -->
 
 <?php if ($page['reveal_left']): ?>
-  <div id="reveal-left-wrapper">
-    <section id="reveal-left" role="contentinfo" class="container">
+  <div id="reveal-left-wrapper" class="reveal">
+	<div class="reveal-dismiss primary"><i class="fa fa-times-circle-o" title="Dismiss sidebar"></i></div>
+    <section id="reveal-left" role="contentinfo">
       <?php print render($page['reveal_left']) ?>
     </section> <!-- /#reveal-left -->
   </div>
 <?php endif; ?>
 
 <?php if ($page['reveal_right']): ?>
-  <div id="reveal-right-wrapper">
-    <section id="reveal-right" role="contentinfo" class="container">
+  <div id="reveal-right-wrapper" class="reveal">
+	<div class="reveal-dismiss primary"><i class="fa fa-times-circle-o" title="Dismiss sidebar"></i></div>
+    <section id="reveal-right" role="contentinfo">
       <?php print render($page['reveal_right']) ?>
     </section> <!-- /#reveal-left -->
   </div>
@@ -143,7 +144,8 @@
 
 <?php if ($page['modals']): ?>
   <div id="modals-wrapper">
-    <section id="modals" role="contentinfo" class="container">
+	<div class="modal-dismiss primary"><i class="fa fa-times-circle-o" title="Dismiss modal"></i></div>
+    <section id="modals" role="contentinfo">
       <?php print render($page['modals']) ?>
     </section> <!-- /#reveal-left -->
   </div>

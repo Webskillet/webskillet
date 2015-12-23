@@ -12,13 +12,13 @@ jQuery(document).ready(function($){
 
 });
 
-/* 1.3 jQuery(window).load() */
+/* 1.2 jQuery(window).load() */
 jQuery(window).load(function(){
 	$ = jQuery;
 
 });
 
-/* 1.2 jQuery(document).ajaxComplete() */
+/* 1.3 jQuery(document).ajaxComplete() */
 jQuery(document).ajaxComplete(function(){
 	$ = jQuery;
 
