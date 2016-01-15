@@ -1,7 +1,7 @@
-name = Webskillet 15 Child Theme
-description = Child theme for Webskillet 15
+name = Webskillet Child Theme
+description = Child theme for Webskillet Base Theme
 core = 7.x
-base theme = webskillet15
+base theme = webskillet
 stylesheets[all][] = css/child.css
 scripts[] = js/script.js
 
@@ -15,6 +15,9 @@ regions[prefooter1]     = Prefooter 1
 regions[prefooter2]		= Prefooter 2
 regions[utility]		= Utility
 regions[footer]         = Footer
+regions[reveal_left]	= Reveal Left
+regions[reveal_right]	= Reveal Right
+regions[modals]			= Modals
 regions[page_top]       = Page top
 regions[page_bottom]    = Page bottom
 

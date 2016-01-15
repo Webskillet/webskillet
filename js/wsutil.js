@@ -178,10 +178,12 @@ wsUtil = {
 		});
 		jQuery('.menu-dismiss').click(function(){ jQuery(this).parent('.main-menu').toggleClass('open'); });
 
-		var menuHammer = new Hammer(jQuery('.mobile-style-default #navigation > ul.main-menu')[0]);
-		menuHammer.on('swipeleft', function(event){
-			if (jQuery(window).width() < 768) { jQuery('#navigation > ul.main-menu').removeClass('open'); }
-		});
+		if (jQuery('.mobile-style-default #navigation > ul.main-menu').length) {
+			var menuHammer = new Hammer(jQuery('.mobile-style-default #navigation > ul.main-menu')[0]);
+			menuHammer.on('swipeleft', function(event){
+				if (jQuery(window).width() < 768) { jQuery('#navigation > ul.main-menu').removeClass('open'); }
+			});
+		}
 
 		jQuery('#wrapper').click(function(event){
 			var $target = jQuery(event.target);

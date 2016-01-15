@@ -50,7 +50,7 @@ function webskillet_preprocess_html(&$variables) {
 
   $googlefonts = theme_get_setting('webskillet_google_webfonts');
   if ($googlefonts) {
-    drupal_add_css('//fonts.googleapis.com/css?family='.$googlefonts,array(
+    drupal_add_css('https://fonts.googleapis.com/css?family='.$googlefonts,array(
 		'type' => 'external',
 		'group' => CSS_SYSTEM,
 		'every_page' => TRUE,
