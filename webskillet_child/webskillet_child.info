@@ -25,6 +25,7 @@ regions[page_bottom]    = Page bottom
 settings[webskillet_navigation_title] = 'Navigation'
 settings[webskillet_navigation_icon] = 'fa-bars'
 settings[webskillet_navigation_style] = 'default'
+settings[webskillet_dismiss_style] = 'fa-times-circle-o'
 settings[webskillet_section_navigation_selector] = 'section-navigation'
 settings[webskillet_section_navigation_padding] = 20
 settings[webskillet_external_links] = 1

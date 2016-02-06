@@ -126,7 +126,7 @@
 
 <?php if ($page['reveal_left']): ?>
   <div id="reveal-left-wrapper" class="reveal">
-	<div class="reveal-dismiss primary"><i class="fa fa-times-circle-o" title="Dismiss sidebar"></i></div>
+	<div class="reveal-dismiss dismiss primary" title="<?php echo '('.t('dismiss sidebar').')'; ?>"></div>
     <section id="reveal-left" role="contentinfo">
       <?php print render($page['reveal_left']) ?>
     </section> <!-- /#reveal-left -->
@@ -135,7 +135,7 @@
 
 <?php if ($page['reveal_right']): ?>
   <div id="reveal-right-wrapper" class="reveal">
-	<div class="reveal-dismiss primary"><i class="fa fa-times-circle-o" title="Dismiss sidebar"></i></div>
+	<div class="reveal-dismiss dismiss primary" title="<?php echo '('.t('dismiss sidebar').')'; ?>"></div>
     <section id="reveal-right" role="contentinfo">
       <?php print render($page['reveal_right']) ?>
     </section> <!-- /#reveal-left -->
@@ -144,7 +144,7 @@
 
 <?php if ($page['modals']): ?>
   <div id="modals-wrapper">
-	<div class="modal-dismiss primary"><i class="fa fa-times-circle-o" title="Dismiss modal"></i></div>
+	<div class="modal-dismiss dismiss primary" title="<?php echo '('.t('dismiss modal').')'; ?>"></div>
     <section id="modals" role="contentinfo">
       <?php print render($page['modals']) ?>
     </section> <!-- /#reveal-left -->

@@ -28,6 +28,9 @@ function webskillet_preprocess_html(&$variables) {
   $mobileStyle = theme_get_setting('webskillet_navigation_style');
   $variables['classes_array'][] = 'mobile-style-'.$mobileStyle;
 
+  $dismissStyle = theme_get_setting('webskillet_dismiss_style');
+  $variables['classes_array'][] = 'dismiss-style-'.$dismissStyle;
+
   $settings = array(
     'pathToTheme' => drupal_get_path('theme', variable_get('theme_default', NULL)),
     'themeOptions' => array(

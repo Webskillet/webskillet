@@ -32,7 +32,7 @@
  *   2.3.4 preparePopUps
  *   2.3.5 fixOnScroll
  *   2.3.6 equalizeHeight
- *   2.3.7 scrollToInclude
+ *   2.3.7 scrollTo
  *   2.3.8 verticalCenter
  * 3. jQuery triggers
  *  3.1 jQuery(document).ready
@@ -156,7 +156,7 @@ wsUtil = {
 
 	// 2.1.2 javascript for mobile and drop-down navigation
 	prepareNavigation : function(container) {
-		jQuery('#navigation > ul.main-menu').append('<li class="menu-dismiss"><i class="fa fa-times-circle-o" title="Dismiss menu"></i></li>');
+		jQuery('#navigation > ul.main-menu').append('<li class="menu-dismiss dismiss" title="(dismiss menu)"></li>');
 		jQuery('#navigation li.expanded ul.main-menu').before('<span class="menu-toggle closed"><i class="fa fa-caret-down" title="Open submenu"></i></span>');
 		jQuery('#navigation .menu-toggle').click(function(){
 			if (jQuery(this).hasClass('closed')) {
@@ -195,6 +195,26 @@ wsUtil = {
 		jQuery(document).keyup(function(event){
 			if ( (event.keyCode == 27) && (jQuery(window).width() < 768) ) { jQuery('#navigation > ul.main-menu').removeClass('open'); }
 		});
+
+		/* om_maximenu support */
+		if (jQuery('#navigation .block-om-maximenu .om-maximenu-no-style').length) {
+			jQuery('#navigation .om-maximenu-no-style').prepend('<div class="om-maximenu-dismiss dismiss" title="(dismiss menu)"/>');
+			jQuery('#navigation .block-om-maximenu > h2').click(function(){
+				jQuery(this).siblings('.content').children('.om-maximenu-no-style').toggleClass('open');
+				if (jQuery(window).width() < 768) { wsUtil.closeReveal(); }
+			});
+			jQuery('#navigation .om-maximenu-no-style h3').click(function(){
+				if (jQuery(this).hasClass('open')) {
+					jQuery(this).removeClass('open').siblings('.content').removeClass('open');
+				} else {
+					jQuery('#navigation .om-maximenu-no-style h3, #navigation .om-maximenu-no-style .block > .content').removeClass('open');
+					jQuery(this).addClass('open').siblings('.content').addClass('open');
+				}
+			});
+			jQuery('.om-maximenu-dismiss').click(function(){
+				jQuery(this).parent().removeClass('open');
+			});
+		}
 	},
 
 	// 2.1.3 make system messages dismissable
@@ -568,13 +588,13 @@ wsUtil = {
 		jQuery(sel).css('height',h+'px').addClass('fixed-height');
 	},
 
-	// 2.3.7 scroll the page to include a particular element, with at least (padding) pixels at the top
+	// 2.3.7 scroll the page to a particular element, with at least (padding) pixels at the top
 	// element may be jQuery object or jQuery selector, padding should be a number, optional callback function
-	scrollToInclude : function(sel, padding, callback) {
+	scrollTo : function(sel, padding, callback) {
 		if (sel instanceof jQuery) { $el = sel; } else { $el = jQuery(sel); }
 		if (isNaN(padding)) { padding = 20; }
 		if (!$el.length || ($el.css('display') == 'none')) { return; }
-		var newTop = $el.offset().top + $el.outerHeight + padding;
+		var newTop = $el.offset().top - padding;
 		if (newTop > jQuery(window).scrollTop()) {
 			jQuery('html, body').stop().animate({
 				scrollTop : newTop

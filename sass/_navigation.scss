@@ -13,11 +13,11 @@ ul.main-menu li.menu-dismiss { position: absolute; top: 5px; right: 5px; font-si
 #navigation ul.main-menu li.expanded > a, #navigation ul.main-menu li.expanded > span.nolink { float: left; padding-right: 0.25em; cursor: pointer; }
 #navigation ul.main-menu li.expanded:after { content: ''; display: table; clear: both; }
 #navigation ul.main-menu li.expanded ul { clear: both; }
-#navigation ul.main-menu li .menu-toggle { float: right; display: block; font-size: 1.333em; line-height: 0.5em; margin: 0.3em 0; padding: 0 1em 0 0.33333em; /* border-left: 1px solid $very-dark-gray; */ cursor: pointer; }
+#navigation ul.main-menu li .menu-toggle { float: right; display: block; font-size: 1.333em; line-height: 0.5em; margin: 0.3em 0; padding: 0 1em 0 0.33333em; cursor: pointer; }
 
 #navigation ul.main-menu span.separator hr { margin: 0; border-color: $light-gray; }
 
-.mobile-style-default #navigation > ul.main-menu { position: fixed; width: 300px; overflow-x: hidden; overflow-y: auto; top: 0; bottom: 0; left: -300px; @include transition-property(left); @include transition-duration(0.15s); @include transition-timing-function(linear); z-index: 500; background: $very-light-gray; font-size: 1.6em; }
+.mobile-style-default #navigation > ul.main-menu { position: fixed; width: 300px; overflow-x: hidden; overflow-y: auto; top: 0; bottom: 0; left: -300px; @include transition-property(left); @include transition-duration(0.15s); @include transition-timing-function(linear); z-index: 500; background: $very-light-gray; font-size: 1.6em; padding-top: 40px; }
 .mobile-style-default #navigation ul.main-menu li a,
 .mobile-style-default #navigation ul.main-menu li span.nolink,
 .mobile-style-default #navigation ul.main-menu li span.separator { padding: 0.5em 0.8333em; }
@@ -28,6 +28,24 @@ ul.main-menu li.menu-dismiss { position: absolute; top: 5px; right: 5px; font-si
 .mobile-style-default #navigation ul.main-menu li.menu-dismiss { font-size: 1.5em; border-bottom: none; }
 .mobile-style-default #navigation > ul.main-menu.open { left: 0; }
 .mobile-style-default #navigation ul.main-menu span.separator hr { border-width: 3px; }
+
+.mobile-style-basic .main-menu ul li.menu-dismiss { display: none; }
+
+// om-maximenu
+#navigation .block-om-maximenu > h2 { cursor: pointer; }
+#navigation .om-maximenu-no-style { position: fixed; width: 300px; overflow-x: hidden; overflow-y: auto; top: 0; bottom: 0; left: -300px; @include transition-property(left); @include transition-duration(0.15s); @include transition-timing-function(linear); z-index: 500; background: $very-light-gray; font-size: 1.6em; padding-top: 40px; }
+#navigation .om-maximenu-no-style.open { left: 0; }
+#navigation .om-maximenu-no-style .om-maximenu-dismiss { position: absolute; top: 5px; right: 5px; font-size: 2em; cursor: pointer; }
+#navigation .om-maximenu-no-style.om-maximenu-block ul.om-menu,
+#navigation .om-maximenu-no-style.om-maximenu-block.om-maximenu-row ul.om-menu li.om-leaf,
+#navigation .om-maximenu-no-style.om-maximenu-block.om-maximenu-row ul.om-menu li.om-leaf .om-link { float: none; height: auto; line-height: 40px; }
+#navigation .om-maximenu-no-style .om-maximenu-content { position: relative; top: auto; left: auto; min-width: 300px; font-size: 0.625em; }
+#navigation .om-maximenu-no-style .om-maximenu-middle { background: transparent; }
+#navigation .om-maximenu-no-style .om-maximenu-middle-right { padding: 0 0 0 30px; }
+#navigation .om-maximenu-no-style .block > h3 { margin-bottom: 0; }
+#navigation .om-maximenu-no-style .block > .content { display: none; }
+#navigation .om-maximenu-no-style .block > .content.open { display: block; }
+#navigation .om-maximenu-no-style .om-maximenu-open { display: none; }
 
 // iPad in portrait mode or larger
 @media screen and (min-width: 768px) {
@@ -46,7 +64,7 @@ ul.main-menu li.menu-dismiss { position: absolute; top: 5px; right: 5px; font-si
 	#navigation li li ul.main-menu.open { left: 100%; top: 0; }
 	#navigation > ul.main-menu > li > span.separator { padding: 0; margin: 0.25em 0; height: 1.6em; border-left: 1px solid $light-gray; }
 
-	.mobile-style-default #navigation > ul.main-menu { width: auto; position: relative; top: auto; bottom: auto; left: auto; overflow: visible; font-size: 1em; }
+	.mobile-style-default #navigation > ul.main-menu { width: auto; position: relative; top: auto; bottom: auto; left: auto; overflow: visible; font-size: 1em; padding-top: 0; }
 	.mobile-style-default #navigation ul.main-menu li { border-bottom: none; }
 	.mobile-style-default #navigation ul.main-menu li.first { padding-right: 0; }
 	.mobile-style-default #navigation > ul.main-menu.open { left: auto; }
@@ -58,4 +76,18 @@ ul.main-menu li.menu-dismiss { position: absolute; top: 5px; right: 5px; font-si
 	.mobile-style-default #navigation ul.main-menu li.expanded > span.nolink { padding-right: 0.25em; }
 	.mobile-style-default #navigation > ul.main-menu > li > span.separator { padding: 0; }
 	.mobile-style-default #navigation ul.main-menu span.separator hr { border-width: 1px; }
+
+	// om-maximenu
+	#navigation .block-om-maximenu > h2 { display: none; }
+	#navigation .om-maximenu-no-style { position: relative; width: auto; overflow-x: visible; overflow-y: visible; top: auto; bottom: auto; left: auto; z-index: 500; background: transparent; font-size: 1em; padding-top: 0; }
+	#navigation .om-maximenu-no-style.open { left: auto; }
+	#navigation .om-maximenu-no-style .om-maximenu-dismiss { display: none; }
+	#navigation .om-maximenu-no-style.om-maximenu-block ul.om-menu,
+	#navigation .om-maximenu-no-style.om-maximenu-block.om-maximenu-row ul.om-menu li.om-leaf,
+	#navigation .om-maximenu-no-style.om-maximenu-block.om-maximenu-row ul.om-menu li.om-leaf .om-link { float: left; height: 30px; line-height: 30px; }
+	#navigation .om-maximenu-no-style ul.om-menu li.om-leaf .om-link { padding: 0 30px 0 0; }
+	#navigation .om-maximenu-no-style .om-maximenu-content { position: absolute; top: 30px; left: 0; min-width: 300px; font-size: 1em; }
+	#navigation .om-maximenu-no-style .om-maximenu-middle { background: #fff; border: 1px solid $light-gray; }
+	#navigation .om-maximenu-no-style .om-maximenu-middle-right { padding: 10px; }
+	#navigation .om-maximenu-no-style .block > .content { display: block; }
 }

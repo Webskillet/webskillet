@@ -36,6 +36,16 @@ function webskillet_child_form_system_theme_settings_alter(&$form, $form_state) 
 	'#description' => t('<strong>Default:</strong> On devices smaller than an iPad (768 pixels), clicking on navigation header slides menu in from the left side, with sub-menus opening downward<br /><strong>Basic:</strong> On devices smaller than an iPad (768 pixels), clicking on navigation header opens menu directly below the header, with sub-menus opening downward'),
 	'#default_value' => theme_get_setting('webskillet_navigation_style'),
   );
+  $form['webskillet_navigation']['webskillet_dismiss_style'] = array
+  (
+	'#type' => 'select',
+	'#title' => t('Dismiss Icon Style'),
+	'#options' => array(
+		'fa-times-circle-o' => 'Thick FontAwesome times-circle-o',
+		'css' => 'Thin CSS X',
+	),
+	'#default_value' => theme_get_setting('webskillet_dismiss_style'),
+  );
 
   $form['webskillet_section_navigation'] = array
   (

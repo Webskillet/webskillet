@@ -4,7 +4,7 @@
 body { color: $base-text; font: 93.75%/1.6em $sans-serif; }
 
 // 1.2 Headers
-h1, h2, h3, h4, h5, h6 { font-weight: normal; margin: 0 0 1em; font-family: $sans-serif; }
+h1, h2, h3, h4, h5, h6 { font-weight: normal; margin: 0 0 1em; }
 h1 { font-size: 2em; }
 h2 { font-size: 1.5em; }
 h3 { font-size: 1.333em; }
@@ -13,27 +13,27 @@ h5 { font-size: 1.0666em; font-weight: bold; margin-bottom: 0; }
 h5 { font-size: 1em; font-weight: bold; margin-bottom: 0; }
 
 // 1.3 Text
-p { margin-bottom: 1.5em; }
+p { margin-bottom: 1.333333em; }
 p.leftalign { text-align: left; }
 p.centeralign { text-align: center; }
 p.rightalign { text-align: right; }
-address { font-style: normal; margin-bottom: 1.5em; }
+address { font-style: normal; margin-bottom: 1.333333em; }
 blockquote { margin: 0 0 0 2em; padding-bottom: 1.8em; }
 blockquote p { margin-bottom: 0.75em; }
 
 // 1.4 Lists
-ul, ol { margin: 0 0 1.5em 2em; }
+ul, ol { margin: 0 0 1.333333em 2em; }
 ul ul, ul ol, ol ul, ol ol { margin-bottom: 0; }
-dl { margin: 0 0 1.5em 0; }
+dl { margin: 0 0 1.333333em 0; }
 dt { font-weight: bold; }
-dd { margin: 0 0 1.5em 2em; }
+dd { margin: 0 0 1.333333em 2em; }
 dd ul, dd ol { margin-left: 0; }
 
 .item-list ul { margin: 0; padding: 0; }
 .item-list ul li { margin: 0; padding: 0; list-style: none outside none; }
 ul.menu { margin: 0; }
 ul.menu li { margin: 0; padding: 0; }
-ul.menu ul { margin-left: 1.5em; }
+ul.menu ul { margin-left: 1.333333em; }
 ul.inline, ul.links.inline { clear: both; margin: 0; }
 ul.inline li { margin: 0; padding: 0 1em 0 0; }
 ul.inline li.last { padding: 0; }
@@ -50,7 +50,7 @@ a:active { color: $ws-blue; }
 img { max-width: 100%; height: auto !important; }
 .image-left,
 .image-right,
-.image-center { display: block; width: auto; margin: 0 auto 1.5em; }
+.image-center { display: block; width: auto; margin: 0 auto 1.333333em; }
 
 // 1.7 Tables
 th, td { padding: 10px; }
@@ -85,7 +85,7 @@ input[type="submit"], button, a.button {
 .form-item { margin: 2em 0; }
 .form-item .description, .filter-guidelines { font-size: 0.8em; line-height: 1.1666em; display: block; clear: left; color: $medium-gray; margin-top: 5px; }
 label { font-weight: normal; }
-.webform-client-form .description, .fieldset-description { margin-bottom: 1.5em; }
+.webform-client-form .description, .fieldset-description { margin-bottom: 1.333333em; }
 .fieldset-description { margin-top: 20px; }
 div.error, .error { color: $ws-red; }
 .form-item input.error, .form-item textarea.error, .form-item select.error { border: 1px solid $ws-red; box-shadow: none; -moz-box-shadow: none; -webkit-box-shadow: none; }
@@ -122,5 +122,5 @@ a.tabledrag-handle .handle { box-sizing: content-box; -moz-box-sizing: content-b
 @media screen and (min-width: 768px) {
 	.image-left { float: left; margin: 0 20px 20px 0; max-width: 50%; }
 	.image-right { float: right; margin: 0 0 20px 20px; max-width: 50%; }
-	.image-center { display: block; width: auto; margin: 0 auto 1.5em; }
+	.image-center { display: block; width: auto; margin: 0 auto 1.333333em; }
 }

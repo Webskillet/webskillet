@@ -1,8 +1,15 @@
 // modals and reveals
 
+.dismiss:before { content: "\f05c"; font-family: FontAwesome; cursor: pointer; }
+.dismiss-style-css .dismiss { width: 30px; height: 30px; cursor: pointer; }
+.dismiss-style-css .dismiss:before, .dismiss-style-css .dismiss:after { content: ''; width: 32px; border-top: 1px solid $very-dark-gray; position: absolute; top: 16px; left: -2px; }
+.dismiss-style-css .dismiss:before { transform: rotate(45deg); }
+.dismiss-style-css .dismiss:after { transform: rotate(-45deg); }
+
 #modals-wrapper { display: none; position: fixed; top: 0; left: 0; bottom: 0; right: 0; opacity: 0; background: rgba(255, 255, 255, 0.8); @include transition-property(opacity); @include transition-duration(0.15s); @include transition-timing-function(linear); z-index: 314159; overflow-x: hidden; overflow-y: auto; }
 .modal-open #modals-wrapper { opacity: 1; }
-.modal-dismiss.primary { position: absolute; top: 6px; right: 10px; cursor: pointer; font-size: 2em; }
+.modal-dismiss.primary { position: absolute; top: 6px; right: 10px; font-size: 2em; }
+.modal-dismiss.primary:before, .modal-dismiss.primary:after { border-color: #fff; }
 
 #modals .block { display: none; background: #fff; }
 .modal-open #modals .block { opacity: 1; }
@@ -22,7 +29,7 @@ body { width: 100%; overflow-x: hidden; }
 .reveal-right #wrapper { left: -300px; }
 .reveal-right #reveal-right-wrapper { z-index: 1; }
 .reveal-left.reveal-right #wrapper { left: 0; }
-.reveal-dismiss.primary { position: absolute; top: 5px; right: 5px; cursor: pointer; font-size: 2.4em; }
+.reveal-dismiss.primary { position: absolute; top: 5px; right: 5px; font-size: 2.4em; }
 .reveal .block { display: none; }
 .reveal .block > h2 { padding: 10px 20px; }
 .reveal .block > .content { padding: 10px 20px; }
@@ -32,7 +39,11 @@ body { width: 100%; overflow-x: hidden; }
 
 // for iPads in portrait mode or larger, modals do not fill the entire screen, and primary dismiss button is fixed to the upper-right-hand corner of the screen
 @media screen and (min-width: 768px) {
+
 	.modal-dismiss.primary { position: fixed; top: 25px; right: 30px; font-size: 2.6667em; }
+	.dismiss-style-css .dismiss:before, .dismiss-style-css .dismiss:after { width: 42px; top: 20px; left: -6px; }
+	.modal-dismiss.primary:before, .modal-dismiss.primary:after { border-color: $very-dark-gray; }
+
 	#modals .block { width: 600px; margin: 30px auto; }
 	#modals .block > h2 { padding: 10px 20px 9px; }
 	#modals .block > .content { padding: 10px 19px; border: 1px solid $light-gray; }
