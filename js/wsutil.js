@@ -214,6 +214,13 @@ wsUtil = {
 			jQuery('.om-maximenu-dismiss').click(function(){
 				jQuery(this).parent().removeClass('open');
 			});
+			jQuery(document).keyup(function(event){
+				if ( (event.keyCode == 27) && (jQuery(window).width() < 768) ) { jQuery('#navigation .om-maximenu-no-style').removeClass('open'); }
+			});
+			var menuHammer = new Hammer(jQuery('#navigation .om-maximenu-no-style')[0]);
+			menuHammer.on('swipeleft', function(event){
+				if (jQuery(window).width() < 768) { jQuery('#navigation .om-maximenu-no-style').removeClass('open'); }
+			});
 		}
 	},
 
