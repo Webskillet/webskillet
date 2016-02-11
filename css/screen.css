@@ -1219,7 +1219,7 @@ ul.btn-social {
   font-size: 2em;
 }
 
-.modal-dismiss.primary:before, .modal-dismiss.primary:after {
+.dismiss-style-css .modal-dismiss.primary:before, .dismiss-style-css .modal-dismiss.primary:after {
   border-color: #fff;
 }
 
@@ -1355,7 +1355,7 @@ body {
     left: -6px;
   }
 
-  .modal-dismiss.primary:before, .modal-dismiss.primary:after {
+  .dismiss-style-css .modal-dismiss.primary:before, .dismiss-style-css .modal-dismiss.primary:after {
     border-color: #333333;
   }
 

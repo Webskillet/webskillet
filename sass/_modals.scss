@@ -9,7 +9,7 @@
 #modals-wrapper { display: none; position: fixed; top: 0; left: 0; bottom: 0; right: 0; opacity: 0; background: rgba(255, 255, 255, 0.8); @include transition-property(opacity); @include transition-duration(0.15s); @include transition-timing-function(linear); z-index: 314159; overflow-x: hidden; overflow-y: auto; }
 .modal-open #modals-wrapper { opacity: 1; }
 .modal-dismiss.primary { position: absolute; top: 6px; right: 10px; font-size: 2em; }
-.modal-dismiss.primary:before, .modal-dismiss.primary:after { border-color: #fff; }
+.dismiss-style-css .modal-dismiss.primary:before, .dismiss-style-css .modal-dismiss.primary:after { border-color: #fff; }
 
 #modals .block { display: none; background: #fff; }
 .modal-open #modals .block { opacity: 1; }
@@ -42,7 +42,7 @@ body { width: 100%; overflow-x: hidden; }
 
 	.modal-dismiss.primary { position: fixed; top: 25px; right: 30px; font-size: 2.6667em; }
 	.dismiss-style-css .dismiss:before, .dismiss-style-css .dismiss:after { width: 42px; top: 20px; left: -6px; }
-	.modal-dismiss.primary:before, .modal-dismiss.primary:after { border-color: $very-dark-gray; }
+	.dismiss-style-css .modal-dismiss.primary:before, .dismiss-style-css .modal-dismiss.primary:after { border-color: $very-dark-gray; }
 
 	#modals .block { width: 600px; margin: 30px auto; }
 	#modals .block > h2 { padding: 10px 20px 9px; }
