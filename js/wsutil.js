@@ -134,22 +134,22 @@ wsUtil = {
 		}
 
 		// fix footer
-		if (Drupal.settings.themeOptions.fixFooter) {
+		if (Drupal.settings.themeOptions.fixFooter > 0) {
 			wsUtil.fixFooter();
 		}
 
 		// shorten links
-		if (Drupal.settings.themeOptions.shortenLinks) {
+		if (Drupal.settings.themeOptions.shortenLinks > 0) {
 			wsUtil.shortenLinks();
 		}
 
 		// external links
-		if (Drupal.settings.themeOptions.externalLinks) {
+		if (Drupal.settings.themeOptions.externalLinks > 0) {
 			wsUtil.prepareExternalLinks(Drupal.settings.themeOptions.externalLinksExceptions);
 		}
 
 		// section navigation
-		if (Drupal.settings.themeOptions.sectionNavigationSelector) {
+		if (Drupal.settings.themeOptions.sectionNavigationSelector.length > 0) {
 			wsUtil.prepareSectionNavigation(Drupal.settings.themeOptions.sectionNavigationSelector, Drupal.settings.themeOptions.sectionNavigationPadding);
 		}
 	},
