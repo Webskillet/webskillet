@@ -127,7 +127,7 @@ wsUtil = {
 		wsUtil.prepareModalsandReveals();
 
 		// validate any forms
-		if (jQuery('form').validate && Drupal.settings.themeOptions.validateForms) {
+		if (jQuery('form').validate && Drupal.settings.themeOptions.validateForms > 0) {
 			jQuery('form').each(function(){
 				jQuery(this).validate();
 			});
