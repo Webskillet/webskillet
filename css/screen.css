@@ -1341,6 +1341,11 @@ body {
   top: 34px;
 }
 
+.admin-menu .slicknav_menu {
+  position: relative;
+  z-index: 1;
+}
+
 @media screen and (min-width: 768px) {
   .modal-dismiss.primary {
     position: fixed;

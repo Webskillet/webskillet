@@ -36,6 +36,7 @@ body { width: 100%; overflow-x: hidden; }
 
 .admin-menu .reveal { padding-top: 59px; }
 .admin-menu .reveal-dismiss.primary { top: 34px; }
+.admin-menu .slicknav_menu { position: relative; z-index: 1; }
 
 // for iPads in portrait mode or larger, modals do not fill the entire screen, and primary dismiss button is fixed to the upper-right-hand corner of the screen
 @media screen and (min-width: 768px) {
