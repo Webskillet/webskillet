@@ -637,8 +637,8 @@ jQuery(document).ready(function($){
  * 3.2 jQuery(window).load
  */
 jQuery(window).load(function(){
-	if (Drupal.settings.themeOptions.fixFooter) { wsUtil.fixFooter(); }
-	if (Drupal.settings.themeOptions.shortenLinks) { wsUtil.shortenLinks(); }
+	if (Drupal.settings.themeOptions.fixFooter > 0) { wsUtil.fixFooter(); }
+	if (Drupal.settings.themeOptions.shortenLinks > 0) { wsUtil.shortenLinks(); }
 });
 
 /**
@@ -646,14 +646,14 @@ jQuery(window).load(function(){
  */
 jQuery(document).ajaxComplete(function() {
 	wsUtil.prepareMessages();
-	if (Drupal.settings.themeOptions.fixFooter) { wsUtil.fixFooter(); }
-	if (Drupal.settings.themeOptions.shortenLinks) { wsUtil.shortenLinks(); }
+	if (Drupal.settings.themeOptions.fixFooter > 0) { wsUtil.fixFooter(); }
+	if (Drupal.settings.themeOptions.shortenLinks > 0) { wsUtil.shortenLinks(); }
 });
 
 /**
  * 3.4 jQuery(window).smartresize()
  */
 jQuery(window).smartresize(function(){
-	if (Drupal.settings.themeOptions.fixFooter) { wsUtil.fixFooter(); }
-	if (Drupal.settings.themeOptions.shortenLinks) { wsUtil.shortenLinks(); }
+	if (Drupal.settings.themeOptions.fixFooter > 0) { wsUtil.fixFooter(); }
+	if (Drupal.settings.themeOptions.shortenLinks > 0) { wsUtil.shortenLinks(); }
 });
