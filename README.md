@@ -10,6 +10,11 @@ Plays well with the following modules:
 
 Feature requests should be directed to [Jonathan Kissam](https://jonathankissam.wordpress.com/about/)
 
+7.x-1.0-beta2 - August 2016
+
+New Features:
+* all text used by javascript (such as "dismiss menu" and "opens in new window") now goes through the t() function so can be internationalized/localized
+
 7.x-1.0-beta1 - February 2016
 
 New Features:

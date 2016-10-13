@@ -42,6 +42,14 @@ function webskillet_preprocess_html(&$variables) {
       'sectionNavigationSelector' => theme_get_setting('webskillet_section_navigation_selector'),
       'sectionNavigationPadding' => theme_get_setting('webskillet_section_navigation_padding'),
     ),
+    'themeTranslations' => array(
+      'dismissMenu' => t('Dismiss menu'),
+      'openSubmenu' => t('Open submenu'),
+      'closeSubmenu' => t('Close submenu'),
+      'dismissMessage' => t('Dismiss message'),
+      'link' => t('link'),
+      'opensInNewWindow' => t('opens in a new window'),
+    ),
   );
   drupal_add_js('jQuery.extend(Drupal.settings, '.json_encode((object) $settings).');', 'inline');
 
@@ -180,6 +188,7 @@ function webskillet_preprocess_page(&$variables) {
 	}
 	$menutitle = theme_get_setting('webskillet_navigation_title');
 	if (!$menutitle) { $menutitle = 'Navigation'; }
+	$menutitle = t($menutitle);
 	if ($icon = theme_get_setting('webskillet_navigation_icon')) {
 		$menutitle = '<i class="fa '.$icon.'"></i> <span>'.$menutitle.'</span>';
 	}

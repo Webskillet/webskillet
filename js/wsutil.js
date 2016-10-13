@@ -10,7 +10,7 @@
  *  1.3 :external selector
  *  1.4 :youtube selector
  *  1.5 :pdf, :doc, :xls and :ppt selectors
- * 2. wsUtil object definition TODO: add reveal, modal, organize what is used by theme vs. what are really utilities
+ * 2. wsUtil object definition
  *  2.1 Default Base Theme Functions
  *   2.1.1 init
  *   2.1.2 prepareNavigation
@@ -156,16 +156,22 @@ wsUtil = {
 
 	// 2.1.2 javascript for mobile and drop-down navigation
 	prepareNavigation : function(container) {
-		jQuery('#navigation > ul.main-menu').append('<li class="menu-dismiss dismiss" title="(dismiss menu)"></li>');
-		jQuery('#navigation li.expanded ul.main-menu').before('<span class="menu-toggle closed"><i class="fa fa-caret-down" title="Open submenu"></i></span>');
+		jQuery('#navigation > ul.main-menu').append('<li class="menu-dismiss dismiss" title="'+Drupal.settings.themeTranslations.dismissMenu+'"></li>');
+		jQuery('#navigation li.expanded ul.main-menu').before('<span class="menu-toggle closed"><i class="fa fa-caret-down" title="'+Drupal.settings.themeTranslations.openSubmenu+'"></i></span>');
 		jQuery('#navigation .menu-toggle').click(function(){
 			if (jQuery(this).hasClass('closed')) {
+
+				// close all other dropdown menus first
+				jQuery('#navigation ul.main-menu li .menu-toggle.open').removeClass('open').addClass('closed').children('i.fa').removeClass('fa-caret-up').addClass('fa-caret-down').attr('title',Drupal.settings.themeTranslations.openSubmenu);
+				jQuery('#navigation ul.main-menu ul.main-menu.open').removeClass('open');
+
+				// then open this one
 				jQuery(this).removeClass('closed').addClass('open');
-				jQuery(this).children('i.fa').removeClass('fa-caret-down').addClass('fa-caret-up').attr('title','Close submenu');
+				jQuery(this).children('i.fa').removeClass('fa-caret-down').addClass('fa-caret-up').attr('title',Drupal.settings.themeTranslations.closeSubmenu);
 				jQuery(this).siblings('ul.main-menu').addClass('open');
 			} else {
 				jQuery(this).removeClass('open').addClass('closed');
-				jQuery(this).children('i.fa').removeClass('fa-caret-up').addClass('fa-caret-down').attr('title','Open submenu');
+				jQuery(this).children('i.fa').removeClass('fa-caret-up').addClass('fa-caret-down').attr('title',Drupal.settings.themeTranslations.openSubmenu);
 				jQuery(this).siblings('ul.main-menu').removeClass('open');
 			}
 		});
@@ -198,7 +204,7 @@ wsUtil = {
 
 		/* om_maximenu support */
 		if (jQuery('#navigation .block-om-maximenu .om-maximenu-no-style').length) {
-			jQuery('#navigation .om-maximenu-no-style').prepend('<div class="om-maximenu-dismiss dismiss" title="(dismiss menu)"/>');
+			jQuery('#navigation .om-maximenu-no-style').prepend('<div class="om-maximenu-dismiss dismiss" title="'+Drupal.settings.themeTranslations.dismissMenu+'"/>');
 			jQuery('#navigation .block-om-maximenu > h2').click(function(){
 				jQuery(this).siblings('.content').children('.om-maximenu-no-style').toggleClass('open');
 				if (jQuery(window).width() < 768) { wsUtil.closeReveal(); }
@@ -228,7 +234,7 @@ wsUtil = {
 	prepareMessages : function() {
 		jQuery('.messages').each(function(){
 			if (jQuery(this).children('.close').length < 1) {
-				jQuery(this).prepend('<div class="close" title="(dismiss message)">&times;</div>');
+				jQuery(this).prepend('<div class="close" title="'+Drupal.settings.themeTranslations.dismissMessage+'">&times;</div>');
 				jQuery(this).children('.close').click(function(event){jQuery(this).parent().slideUp();});
 			}
 		});
@@ -434,7 +440,7 @@ wsUtil = {
 					if (url[2]) {
 						jQuery(this).text('('+url[2]+')');
 					} else {
-						jQuery(this).text('(link)');
+						jQuery(this).text('('+Drupal.settings.themeTranslations.link+')');
 					}
 				}
 
@@ -456,7 +462,7 @@ wsUtil = {
 			var href = jQuery(this).attr('href');
 			var title = jQuery(this).attr('title') ? jQuery(this).attr('title') : '';
 			title += (title.length > 0) ? ' ' : '';
-			title += '(opens in a new window)';
+			title += '('+Drupal.settings.themeTranslations.opensInNewWindow+')';
 			jQuery(this).attr('title',title);
 			jQuery(this).click(function(event){
 				window.open(href,'','');

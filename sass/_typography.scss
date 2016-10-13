@@ -69,7 +69,7 @@ legend + * { -webkit-margin-top-collapse: separate; }
 input.form-checkbox:checked + label, input.form-radio:checked + label { color: $base-text; }
 input[type="submit"], button, a.button {
   background: $very-light-gray;
-  border-radius: 0;
+  @include border-radius(0);
   color: $base-text;
   padding: 0.5em 1em;
   margin-right: 1em;
