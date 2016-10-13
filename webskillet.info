@@ -1,7 +1,7 @@
 name = Webskillet Base Theme
 description = mobile-first base HTML5 theme for Webskillet development (2016 version)
 package = Core
-version = 1.0-beta2
+version = 1.0-beta3
 core = 7.x
 engine = phptemplate
 stylesheets[screen, projection][] = css/includes/reset.css
@@ -44,7 +44,7 @@ regions[page_bottom]    = Page bottom
 settings[webskillet_navigation_title] = 'Navigation'
 settings[webskillet_navigation_icon] = 'fa-bars'
 settings[webskillet_navigation_style] = 'default'
-settings[webskillet_dismiss_style] = 'fa-times-circle-o'
+settings[webskillet_dismiss_style] = 'times'
 settings[webskillet_section_navigation_selector] = '.section-navigation'
 settings[webskillet_section_navigation_padding] = 20
 settings[webskillet_external_links] = 1

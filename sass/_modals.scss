@@ -1,10 +1,11 @@
 // modals and reveals
 
-.dismiss:before { content: "\f05c"; font-family: FontAwesome; cursor: pointer; }
+.dismiss:before { content: "\00d7"; cursor: pointer; }
 .dismiss-style-css .dismiss { width: 30px; height: 30px; cursor: pointer; }
 .dismiss-style-css .dismiss:before, .dismiss-style-css .dismiss:after { content: ''; width: 32px; border-top: 1px solid $very-dark-gray; position: absolute; top: 16px; left: -2px; }
 .dismiss-style-css .dismiss:before { transform: rotate(45deg); }
 .dismiss-style-css .dismiss:after { transform: rotate(-45deg); }
+.dismiss-style-times-circle .dismiss:before { content: "\f05c"; font-family: FontAwesome; }
 
 #modals-wrapper { display: none; position: fixed; top: 0; left: 0; bottom: 0; right: 0; opacity: 0; background: rgba(255, 255, 255, 0.8); @include transition-property(opacity); @include transition-duration(0.15s); @include transition-timing-function(linear); z-index: 314159; overflow-x: hidden; overflow-y: auto; }
 .modal-open #modals-wrapper { opacity: 1; }
@@ -34,8 +35,7 @@ body { width: 100%; overflow-x: hidden; }
 .reveal .block > h2 { padding: 10px 20px; }
 .reveal .block > .content { padding: 10px 20px; }
 
-.admin-menu .reveal { padding-top: 59px; }
-.admin-menu .reveal-dismiss.primary { top: 34px; }
+.admin-menu .reveal { top: 29px; }
 .admin-menu .slicknav_menu { position: relative; z-index: 1; }
 
 // for iPads in portrait mode or larger, modals do not fill the entire screen, and primary dismiss button is fixed to the upper-right-hand corner of the screen

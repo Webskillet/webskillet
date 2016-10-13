@@ -70,11 +70,12 @@ function webskillet_preprocess_html(&$variables) {
   }
 
   // load fontawesome
-  drupal_add_css('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css',array(
-	'type' => 'external',
-	'group' => CSS_SYSTEM,
-	'every_page' => TRUE,
-	'weight' => -99,
+  drupal_add_js('https://use.fontawesome.com/1a216137ba.js',array(
+	  'type' => 'external',
+	  'group' => JS_LIBRARY,
+	  'every_page' => TRUE,
+	  'weight' => -999,
+	  'requires_jquery' => FALSE,
   ));
 
   if ($google_site_verification = theme_get_setting('webskillet_google_site_verification')) {

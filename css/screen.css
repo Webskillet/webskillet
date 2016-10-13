@@ -229,6 +229,8 @@ input.form-checkbox:checked + label, input.form-radio:checked + label {
 
 input[type="submit"], button, a.button {
   background: #EEEEEE;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
   border-radius: 0;
   color: #333333;
   padding: 0.5em 1em;
@@ -384,7 +386,6 @@ html, body {
 
 body.admin-menu {
   margin-top: 0 !important;
-  padding-top: 29px !important;
 }
 
 .chromeframe {
@@ -394,15 +395,33 @@ body.admin-menu {
   padding: 0.2em 0;
 }
 
+#wrapper, .reveal, #modals-wrapper {
+  -webkit-user-select: auto;
+  -moz-user-select: auto;
+  -ms-user-select: auto;
+  user-select: auto;
+}
+
 #wrapper {
-  width: 100%;
-  min-height: 100%;
-  position: relative;
+  position: fixed;
   left: 0;
   right: 0;
+  top: 0;
+  bottom: 0;
   z-index: 5;
   background: #fff;
   overflow-x: visible;
+}
+
+.admin-menu #wrapper {
+  top: 29px;
+}
+
+#wrapper-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
 }
 
 #skip-link {
@@ -1154,8 +1173,7 @@ ul.btn-social {
 }
 /* 8.0 Reveals and Modals */
 .dismiss:before {
-  content: "\f05c";
-  font-family: FontAwesome;
+  content: "\00d7";
   cursor: pointer;
 }
 
@@ -1180,6 +1198,11 @@ ul.btn-social {
 
 .dismiss-style-css .dismiss:after {
   transform: rotate(-45deg);
+}
+
+.dismiss-style-times-circle .dismiss:before {
+  content: "\f05c";
+  font-family: FontAwesome;
 }
 
 #modals-wrapper {
@@ -1334,11 +1357,7 @@ body {
 }
 
 .admin-menu .reveal {
-  padding-top: 59px;
-}
-
-.admin-menu .reveal-dismiss.primary {
-  top: 34px;
+  top: 29px;
 }
 
 .admin-menu .slicknav_menu {

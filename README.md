@@ -8,7 +8,17 @@ Plays well with the following modules:
 * [__OM Maximenu__](https://www.drupal.org/project/om_maximenu): if maximenu block with "no style" is placed in navigation region, will make the maximenu mobile-friendly. In order to ensure expected behavior, select mouse action of "Click (fast)," skin of "No Style" and style of "Dropdown," and make all menu links that have blocks attached to them into &lt;span&gt; elements by making sure the Title Options > Path field is empty.
 * [__Hybridauth Social Login__](https://www.drupal.org/project/hybridauth): changes the confusing "Hybridauth Identities" tabs and links to "Social Identities"
 
-Feature requests should be directed to [Jonathan Kissam](https://jonathankissam.wordpress.com/about/)
+Feature requests should be directed to [Jonathan Kissam](http://jonathankissam.com/about#contact)
+
+7.x-1.0-beta3 - October 2016
+
+* option to use a times glyph for the dismiss icons (replaces FontAwesome thick circle times as the default)
+* improved reveal functioning
+* opening modals and reveals now adds block-specific class to body element
+* now using FontAwesome CDN
+* modals and reveals can be auto-opened (after 3 seconds) by including the block id as a hash of the URL (i.e., going to http://example.com/#my-block will auto-open a modal if #my-block is the id of a block in the modal region)
+* miscellaneous code cleanups
+* fixed bug that prevented text from being selectable
 
 7.x-1.0-beta2 - August 2016
 

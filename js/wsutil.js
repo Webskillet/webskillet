@@ -317,9 +317,11 @@ wsUtil = {
 
 			// if user login form has been placed in the modal or reveal region,
 			// open any /user/login links as a modal, and add destination query from link to form action
-			if ((href.substr(0,11) == '/user/login') && (jQuery('#modals #user-login-form').length || jQuery('.reveal #user-login-form').length)) {
-				if (href.substr(0,24) == '/user/login?destination=') {
-					var destination = href.substr(24);
+			var loginLinkPrefix = Drupal.settings.basePath + Drupal.settings.pathPrefix;
+			var loginLinkPrefixLength = loginLinkPrefix.length;
+			if ((href.substr(loginLinkPrefixLength,10) == 'user/login') && (jQuery('#modals #user-login-form').length || jQuery('.reveal #user-login-form').length)) {
+				if (href.substr(loginLinkPrefixLength,23) == 'user/login?destination=') {
+					var destination = href.substr(loginLinkPrefixLength+24);
 					var modalAction = jQuery('#modals #user-login-form').attr('action').replace(/\?destination=[^&]+/,'?destination='+destination);
 					jQuery('#modals #user-login-form').attr('action',modalAction);
 					var revealAction = jQuery('.reveal #user-login-form').attr('action').replace(/\?destination=[^&]+/,'?destination='+destination);
@@ -346,6 +348,15 @@ wsUtil = {
 			}
 			return true;
 		});
+		if (jQuery('#modals '+window.location.hash).length) {
+			setTimeout(function(){
+				wsUtil.openModal('#modals '+window.location.hash,{focusInput:true});
+			}, 3000);
+		} else if (jQuery('.reveal '+window.location.hash).length) {
+			setTimeout(function(){
+				wsUtil.openReveal('.reveal '+window.location.hash,{focusInput:true});
+			}, 3000);
+		}
 	},
 
 	// 2.1.5 open modal
@@ -359,7 +370,11 @@ wsUtil = {
 		jQuery('#modals .block').hide();
 		jQuery('#modals-wrapper').css('display','block');
 		$el.css('display','block').addClass('open');
-		setTimeout(function(){jQuery('body').addClass('modal-open');}, 0)
+		var bodyClass = $el.attr('id').length ? 'modal-open-' + $el.attr('id') : '';
+		setTimeout(function(){
+			jQuery('body').addClass('modal-open');
+			if (bodyClass.length) { jQuery('body').addClass(bodyClass); }
+		}, 0);
 
 		if (options && options.focusInput && ($el.find('input').length > 0) && jQuery('html').hasClass('no-touch')) {
 			$el.find('input:first').focus();
@@ -369,6 +384,7 @@ wsUtil = {
 	// 2.1.6 close modal
 	closeModal : function() {
 		jQuery('body').removeClass('modal-open');
+		if (jQuery('#modals .block.open').attr('id').length) { jQuery('body').removeClass('modal-open-' + jQuery('#modals .block.open').attr('id')); }
 		window.setTimeout(function(){ jQuery('#modals .block').hide().removeClass('open'); jQuery('#modals-wrapper').hide(); }, 1000);
 	},
 
@@ -381,17 +397,20 @@ wsUtil = {
 		if ($el.hasClass('open')) { return; }
 
 		revealClassToAdd = ($el.closest('.reveal').attr('id') == 'reveal-left-wrapper') ? 'reveal-left' : 'reveal-right';
+		var bodyClassToAdd = $el.attr('id').length ? revealClassToAdd + '-' + $el.attr('id') : '';
 
 		if (jQuery('body').hasClass('reveal-left') || jQuery('body').hasClass('reveal-right')) {
-			jQuery('body').removeClass('reveal-left reveal-right');
+			jQuery('body').removeClass('reveal-left reveal-right reveal-left-'+jQuery('.reveal .block.open').attr('id')+' reveal-right-'+jQuery('.reveal .block.open').attr('id'));
 			setTimeout(function(){
 				jQuery('.reveal .block').hide();
 				$el.show().addClass('open');
 				jQuery('body').addClass(revealClassToAdd);
+				if (bodyClassToAdd.length) { jQuery('body').addClass(bodyClassToAdd); }
 			}, 150);
 		} else {
 			$el.show().addClass('open');
 			jQuery('body').addClass(revealClassToAdd);
+			if (bodyClassToAdd.length) { jQuery('body').addClass(bodyClassToAdd); }
 		}
 
 		if (options && options.focusInput && ($el.find('input').length > 0) && jQuery('html').hasClass('no-touch')) {
@@ -401,7 +420,7 @@ wsUtil = {
 
 	// 2.1.8 close reveal
 	closeReveal : function() {
-		jQuery('body').removeClass('reveal-left reveal-right');
+		jQuery('body').removeClass('reveal-left reveal-right reveal-left-'+jQuery('.reveal .block.open').attr('id')+' reveal-right-'+jQuery('.reveal .block.open').attr('id'));
 		setTimeout(function(){
 			jQuery('.reveal .block').hide().removeClass('open');
 		}, 150);
