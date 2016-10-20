@@ -1,5 +1,5 @@
 <?php if (!$ajax): ?>
-<div id="wrapper">
+<div id="wrapper"><div id="wrapper-inner">
 
   <div id="skip-link">
     <a href="#main-content" class="element-invisible element-focusable"><?php print t('Skip to main content'); ?></a>
@@ -122,7 +122,7 @@
   </footer> <!-- /#footer -->
 </div>
 
-</div> <!-- /#wrapper -->
+</div></div> <!-- /#wrapper, /#wrapper-inner -->
 
 <?php if ($page['reveal_left']): ?>
   <div id="reveal-left-wrapper" class="reveal">
