@@ -10,6 +10,14 @@ Plays well with the following modules:
 
 Feature requests should be directed to [Jonathan Kissam](http://jonathankissam.com/about#contact)
 
+7.x-1.0-beta4 - November 2016
+
+* update child theme .info file to use times glyph as default for dismiss icons
+* update child theme theme-settings.php file to include times glyph in settings
+* fix bugs in wsutil.js that were preventing reveals from opening
+* fix bug which was preventing the fixing of footers from working properly
+* make fixed footers move to the side for reveals
+
 7.x-1.0-beta3 - October 2016
 
 * option to use a times glyph for the dismiss icons (replaces FontAwesome thick circle times as the default)

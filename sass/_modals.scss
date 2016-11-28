@@ -24,10 +24,13 @@
 #reveal-right-wrapper { right: 0; }
 body { width: 100%; overflow-x: hidden; }
 #wrapper { @include transition-property(left); @include transition-duration(0.15s); @include transition-timing-function(linear); }
+#footer-wrapper.fixed { @include transition-property(left, right); @include transition-duration(0.15s); @include transition-timing-function(linear); }
 .reveal-left, .reveal-right { width: 100%; height: 100%; overflow-x: hidden; overflow-y: auto; }
 .reveal-left #wrapper { left: 300px; }
+.reveal-left #footer-wrapper.fixed { left: 300px; right: -300px; }
 .reveal-left #reveal-left-wrapper { z-index: 1; }
 .reveal-right #wrapper { left: -300px; }
+.reveal-right #footer-wrapper.fixed { left: -300px; right: 300px; }
 .reveal-right #reveal-right-wrapper { z-index: 1; }
 .reveal-left.reveal-right #wrapper { left: 0; }
 .reveal-dismiss.primary { position: absolute; top: 5px; right: 5px; font-size: 2.4em; }

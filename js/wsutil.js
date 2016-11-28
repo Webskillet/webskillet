@@ -334,7 +334,7 @@ wsUtil = {
 				$target = jQuery(href);
 			}
 
-			if ($target.length != 1) { return; }
+			if (!$target || ($target.length != 1)) { return; }
 			if (!$target.hasClass('block')) { return true; }
 			if ($target.closest('#modals').length) {
 				event.preventDefault();
@@ -343,6 +343,7 @@ wsUtil = {
 			}
 			if ($target.closest('.reveal').length) {
 				event.preventDefault();
+				event.stopPropagation();
 				wsUtil.openReveal($target, options);
 				return;
 			}
@@ -395,7 +396,7 @@ wsUtil = {
 		// only open this if it is a block in a reveal region, and is not already open
 		if (!$el.closest('.reveal').length || !$el.hasClass('block')) { return; }
 		if ($el.hasClass('open')) { return; }
-
+		
 		revealClassToAdd = ($el.closest('.reveal').attr('id') == 'reveal-left-wrapper') ? 'reveal-left' : 'reveal-right';
 		var bodyClassToAdd = $el.attr('id').length ? revealClassToAdd + '-' + $el.attr('id') : '';
 
@@ -408,9 +409,11 @@ wsUtil = {
 				if (bodyClassToAdd.length) { jQuery('body').addClass(bodyClassToAdd); }
 			}, 150);
 		} else {
-			$el.show().addClass('open');
-			jQuery('body').addClass(revealClassToAdd);
-			if (bodyClassToAdd.length) { jQuery('body').addClass(bodyClassToAdd); }
+			setTimeout(function(){
+				$el.show().addClass('open');
+				jQuery('body').addClass(revealClassToAdd);
+				if (bodyClassToAdd.length) { jQuery('body').addClass(bodyClassToAdd); }
+			}, 0);
 		}
 
 		if (options && options.focusInput && ($el.find('input').length > 0) && jQuery('html').hasClass('no-touch')) {
@@ -438,7 +441,7 @@ wsUtil = {
 		var heightOfPage = jQuery(window).height();
 		var bottomOfFooter = $footer.offset().top + $footer.outerHeight();
 		if ($footer.hasClass('fixed')) {
-			if ((jQuery('#wrapper').outerHeight() + $footer.outerHeight()) > heightOfPage) { $footer.removeClass('fixed'); }
+			if ((jQuery('#header-wrapper').outerHeight()+jQuery('#navigation-wrapper').outerHeight()+jQuery('#main-wrapper').outerHeight()+jQuery('#footer-wrapper').outerHeight()) > heightOfPage) { $footer.removeClass('fixed'); }
 		} else {
 			if (bottomOfFooter < heightOfPage) { $footer.addClass('fixed'); }
 		}

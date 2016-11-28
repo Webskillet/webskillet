@@ -41,8 +41,9 @@ function webskillet_child_form_system_theme_settings_alter(&$form, $form_state) 
 	'#type' => 'select',
 	'#title' => t('Dismiss Icon Style'),
 	'#options' => array(
-		'fa-times-circle-o' => 'Thick FontAwesome times-circle-o',
+		'times' => 'Times (&times;)',
 		'css' => 'Thin CSS X',
+		'times-circle' => 'Thick FontAwesome times-circle-o',
 	),
 	'#default_value' => theme_get_setting('webskillet_dismiss_style'),
   );
