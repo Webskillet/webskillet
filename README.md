@@ -10,6 +10,12 @@ Plays well with the following modules:
 
 Feature requests should be directed to [Jonathan Kissam](http://jonathankissam.com/about#contact)
 
+7.x-1.0-rc1 - December 2016
+
+* plays nicely with Adminimal Administration Menu's responsive menu
+* improved and responsive theming of form elements
+* primary tabs moved into drop-down menu
+
 7.x-1.0-beta4 - November 2016
 
 * update child theme .info file to use times glyph as default for dismiss icons

@@ -152,6 +152,18 @@ wsUtil = {
 		if (Drupal.settings.themeOptions.sectionNavigationSelector.length > 0) {
 			wsUtil.prepareSectionNavigation(Drupal.settings.themeOptions.sectionNavigationSelector, Drupal.settings.themeOptions.sectionNavigationPadding);
 		}
+
+		// check for any selects with long options that might break responsiveness
+		jQuery('select option').each(function(){
+			if(jQuery(this).text().length > 30) {
+				jQuery(this).parent().css('width','100%');
+			}
+		});
+		// set up token input dropdowns to match the (responsive) width of the input itself
+		jQuery('form ul.token-input-list input').focus(function(){
+			var w = jQuery(this).closest('ul.token-input-list').outerWidth();
+			jQuery('div.token-input-dropdown').width(w);
+		});
 	},
 
 	// 2.1.2 javascript for mobile and drop-down navigation
@@ -228,6 +240,16 @@ wsUtil = {
 				if (jQuery(window).width() < 768) { jQuery('#navigation .om-maximenu-no-style').removeClass('open'); }
 			});
 		}
+
+		// primary tabs
+		var primaryTabsWidth = jQuery('.tabs-wrapper ul.primary').width();
+		if (primaryTabsWidth < 200) { primaryTabsWidth = 200; }
+		jQuery('.tabs-wrapper ul.primary').width(primaryTabsWidth).addClass('collapsed');
+		jQuery('.tabs-wrapper').height(jQuery('.tabs-wrapper ul.primary').outerHeight());
+		jQuery('.tabs-wrapper ul.primary li.active a').click(function(event){
+			event.preventDefault();
+			jQuery(this).closest('ul.primary').toggleClass('collapsed');
+		});
 	},
 
 	// 2.1.3 make system messages dismissable

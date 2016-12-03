@@ -9,19 +9,12 @@ div.status, div.warning, div.error { border-color: $light-gray; background-color
 div.status, .ok { color: $base-text; }
 
 /* 6.2 Admin tabs */
-
 .tabs-wrapper { margin: 1px 0 1.5em; }
-.tabs-wrapper h2 { margin-bottom: 0; }
-ul.primary { display: inline-block; border: none; border-bottom: 1px solid $dark-gray; padding: 0; margin: 0; position: relative; z-index: 15; }
-ul.primary li { display: block; margin: 0; }
-ul.primary li a { display: block; padding: 10px 20px; font-size: 1.2em; font-weight: bold; text-transform: uppercase; @include border-radius(0); color: #fff; background-color: $dark-gray; border-color: $dark-gray; border-bottom: 0; margin: 0; }
-.no-touch ul.primary li a:hover { border-color: $dark-gray; color: #fff; background-color: $medium-gray; }
-ul.primary li.active a { border-color: $dark-gray; border-bottom: 0; color: $dark-gray; }
-.no-touch ul.primary li.active a:hover { color: $dark-gray; background-color: #fff; }
-ul.primary li.active a:before { content: '\f142'; font-family: FontAwesome; font-weight: normal; float: right; margin-left: 0.5em; }
-
-ul.primary.collapsed li { display: none; }
-ul.primary.collapsed li.active { display: block; }
+ul.primary { margin: 0; padding: 1px 0 0; border-bottom: none; }
+ul.primary li { display: block; margin-bottom: 1em; text-align: center; }
+ul.primary li a { @include border-radius(5px); border-color: $light-gray; border-bottom: 1px solid $light-gray; }
+.no-touch ul.primary li a:hover { border-color: $light-gray; border-bottom: 1px solid $light-gray; }
+ul.primary li.active a { border-color: $light-gray; border-bottom: 1px solid $light-gray; }
 
 /* 6.3 Nodes */
 
@@ -95,7 +88,6 @@ ul.btn-social { margin: 0; padding: 0; height: 30px; }
 @media screen and (min-width: 768px) {
 
 	// restore primary tabs to Drupal-like original layout
-/*
 	ul.primary { border-bottom: 1px solid $light-gray; }
 	ul.primary li { display: inline; margin-bottom: 0; }
 	ul.primary li a { @include border-top-left-radius(8px); @include border-top-right-radius(8px); @include border-bottom-left-radius(0); @include border-bottom-right-radius(0); background-color: $light-gray; border-color: $light-gray; padding: 2px 0.75em 0; }
@@ -103,6 +95,5 @@ ul.btn-social { margin: 0; padding: 0; height: 30px; }
 	.no-touch ul.primary li a:hover { background-color: #fff; border-color: $light-gray $light-gray #fff; border-bottom: solid 1px #fff; }
 	ul.secondary { line-height: 3em; margin: 0 0 -1px; padding: 0; }
 	ul.secondary a.active { border-bottom: none; }
-*/
 
 }

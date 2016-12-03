@@ -5,8 +5,8 @@ body { color: $base-text; font: 93.75%/1.6em $sans-serif; }
 
 // 1.2 Headers
 h1, h2, h3, h4, h5, h6 { font-weight: normal; margin: 0 0 1em; }
-h1 { font-size: 2em; }
-h2 { font-size: 1.5em; }
+h1 { font-size: 2em; margin-bottom: 0.5em; }
+h2 { font-size: 1.6em; margin-bottom: 0.66667em; }
 h3 { font-size: 1.333em; }
 h4 { font-size: 1.2em; font-weight: bold; }
 h5 { font-size: 1.0666em; font-weight: bold; margin-bottom: 0; }
@@ -54,23 +54,119 @@ img { max-width: 100%; height: auto !important; }
 
 // 1.7 Tables
 th, td { padding: 10px; }
+thead tr { background: $very-light-gray; border-bottom: 1px solid $light-gray; }
+tr.even, tr.odd { background: $smoke; border-bottom: 1px solid $light-gray; }
+th.active img { margin-left: 0.333em; }
 
 // 1.8 Form elements
-input, select, textarea { border: 1px solid $light-gray; color: $base-text; padding: 0.5em; font-family: $sans-serif; width: 100%; outline: 0; }
+input, select, textarea, ul.token-input-list { border: 1px solid $light-gray; color: $base-text; padding: 0.5em; outline: 0; background: #fff; }
+input { width: 100%; }
+select { max-width: 100%; position: relative; -moz-appearance: none; -webkit-appearance: none; -webkit-border-radius: 0; background: #fff url(../images/arrow-select.png) no-repeat right 45%; padding-right: 30px; }
+select option { max-width: 100%; }
+select[multiple] { padding-right: 0.5em; background: #fff none; }
+textarea { width: 100%; }
 input:focus, select:focus, textarea:focus { border-color: $base-text; }
 input[type="checkbox"],input[type="radio"],input[type="submit"],input[type="image"] { width: auto; }
 input[type="image"] { border: 0; outline: invert none medium; }
 input[type="search"] { -webkit-appearance: none; moz-appearance: none; }
-input, select { max-width: 400px; }
-fieldset { margin: 2em 0; border-color: $light-gray; }
-legend { font: 1.333em $sans-serif; color: #333; border: 1px solid $light-gray; padding: 2px 15px; background: $very-light-gray; }
+fieldset { margin-top: 3em; margin-left: -20px; margin-right: -20px; margin-bottom: 3em; padding: 0 20px; border: none; background: $smoke; }
+legend { font-size: 1em; font-weight: bold; color: $base-text; border: none; padding: 5px 20px; background: $light-gray; }
+html.js fieldset.collapsed { background: transparent; }
+html.js fieldset.collapsible .fieldset-legend { padding-left: 0; background-position: right 65%; }
+html.js fieldset.collapsed .fieldset-legend { background-position: right 50%; }
+html.js fieldset.collapsible .fieldset-legend a { display: inline-block; color: $base-text; padding-right: 15px; margin-right: -10px; }
 legend + * { -webkit-margin-top-collapse: separate; }
-.form-type-checkbox label, .form-type-radio label { color: $medium-gray; }
-input.form-checkbox:checked + label, input.form-radio:checked + label { color: $base-text; }
+
+/* Style checkbox and radio buttons in Chrome + Safari + Opera */
+@supports (-webkit-appearance:none) {
+  input[type=checkbox],
+  input[type=radio],
+  input[type=checkbox]#edit-delete {
+    -webkit-appearance:none;
+    display: inline-block;
+    position: relative;
+    top: -2px;
+    margin-right: 0.25em;
+    padding: 0;
+    background: #fff;
+    border: 1px solid $light-gray;
+    width: 16px !important;
+    height: 16px !important;
+    -webkit-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: background 0.5s ease;
+    outline: none;
+  }
+
+  input.form-checkbox {
+    width: 16px;
+    display: inline-block;
+  }
+
+  input[type=checkbox]#edit-delete {
+    margin-bottom: 0;
+  }
+
+  input[type=radio] {
+    border-radius: 50%;
+  }
+
+  input[type=checkbox]:hover,
+  input[type=checkbox]:focus,
+  input[type=radio]:hover,
+  input[type=radio]:focus {
+    border-color: $ws-blue;
+    cursor: pointer;
+  }
+
+  input[type=checkbox]#edit-delete:hover,
+  input[type=checkbox]#edit-delete:focus {
+    border-color: $ws-red;
+    cursor: pointer;
+  }
+
+  input[type=checkbox]:checked,
+  input[type=checkbox]:disabled:checked,
+  input[type=radio]:checked,
+  input[type=radio]:disabled:checked{
+    background: $ws-blue;
+    box-shadow: inset 0px 0px 0px 4px #fff;
+  }
+
+  input[type=checkbox]#edit-delete:checked,
+  input[type=checkbox]#edit-delete:disabled:checked {
+    background: $ws-red;
+    box-shadow: inset 0px 0px 0px 4px #fff;
+  }
+
+  input[type=checkbox]:disabled,
+  input[type=radio]:disabled {
+    opacity: .5;
+    background: $smoke;
+  }
+
+  input[type=checkbox]#edit-delete:disabled {
+    opacity: .5;
+    background: $ws-red;
+  }
+
+  input[type=checkbox]:disabled:hover {
+    border-color: $light-gray;
+    cursor: default;
+  }
+
+  input[type=checkbox]:disabled:hover,
+  input[type=radio]:disabled:hover {
+    border-color: $light-gray;
+    cursor: default;
+  }
+
+}
+
 input[type="submit"], button, a.button {
-  background: $very-light-gray;
+  background: $very-dark-gray;
   @include border-radius(0);
-  color: $base-text;
+  color: #fff;
   padding: 0.5em 1em;
   margin-right: 1em;
   border: none;
@@ -78,11 +174,13 @@ input[type="submit"], button, a.button {
   cursor: pointer;
 }
 .no-touch input[type="submit"]:hover, .no-touch button:hover, .no-touch a.button:hover {
-  background: $light-gray;
+  background: $dark-gray; color: #fff;
 }
+input[type="submit"].button-block, button.button-block, a.button.button-block { display: block; margin-right: 0; margin-bottom: 0.333em; }
 
 // 1.9 Drupal forms
 .form-item { margin: 2em 0; }
+fieldset .form-item { margin: 1em 0; }
 .form-item .description, .filter-guidelines { font-size: 0.8em; line-height: 1.1666em; display: block; clear: left; color: $medium-gray; margin-top: 5px; }
 label { font-weight: normal; }
 .webform-client-form .description, .fieldset-description { margin-bottom: 1.333333em; }
@@ -93,14 +191,28 @@ div.error, .error { color: $ws-red; }
 a.tabledrag-handle .handle { box-sizing: content-box; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; }
 
 .image-widget-data { width: 100%; max-width: 400px; }
-.form-managed-file .form-file { width: 73%; }
-.form-managed-file .form-submit { width: 25%; margin-left: 2%; }
+.form-managed-file .form-file,
+.form-managed-file .form-submit { display: block; width: 100%; margin: 0; }
+.form-managed-file .form-file { margin-bottom: 10px; }
+
+.confirm-parent, .password-parent { width: 100%; }
+.password-strength { width: 100%; float: none; margin: 1em 0; }
+input.password-confirm, input.password-field { width: 100%; }
+div.password-confirm { width: 100%; float: none; margin: 0; }
+div.password-confirm:hidden { height: 0; }
+div.form-item div.password-suggestions { width: 100%; }
+.form-type-password-confirm .password-parent { margin-bottom: 0.5em; }
+.form-type-password-confirm .confirm-parent { margin-top: 0.5em; }
 
 .node-form .field-type-image table { width: 100%; }
 .node-form .field-type-image td { vertical-align: middle; }
 .node-form .field-type-image td .image-widget { float: left; }
 
 .filter-wrapper .form-item { margin: 0; }
+.filter-help { padding-top: 0.5em; }
+.filter-help a { padding-left: 0; }
+.filter-guidelines { padding-top: 1em; }
+.filter-help, .filter-wrapper .form-item, .filter-guidelines { padding-left: 10px; padding-right: 10px; }
 
 .vertical-tabs ul.vertical-tabs-list li { font-size: 0.8em; line-height: 1.167em; }
 .vertical-tabs ul.vertical-tabs-list li a { padding: 1em 0.6em; }
@@ -118,9 +230,41 @@ a.tabledrag-handle .handle { box-sizing: content-box; -moz-box-sizing: content-b
 .vertical-tabs fieldset.vertical-tabs-pane .form-item { margin: 1em 0; }
 .vertical-tabs fieldset.vertical-tabs-pane .description { font-size: 1em; }
 
+// override token input
+div.token-input-dropdown { z-index: 10; font-family: inherit; font-size: inherit; }
+form ul.token-input-list { border: 1px solid #ccc; font-family: inherit; font-size: inherit; width: 100%; max-width: 400px; }
+form fieldset ul.token-input-list { max-width: 380px; }
+form ul.token-input-list li input { padding: 8px; width: 100%; }
+form li.token-input-token { padding: 1px 5px; font-weight: normal; background-color: transparent; }
+form .webform-component.static li.token-input-token { background-color: transparent; }
+form li.token-input-selected-token { background-color: #666; }
+form li.token-input-selected-token span { color: #ccc; }
+div.token-input-dropdown p { color: #666; font-weight: normal; padding: 5px 15px; }
+div.token-input-dropdown ul li { padding: 3px 15px; }
+div.token-input-dropdown ul li.token-input-dropdown-item { background-color: #f5f5f5; }
+div.token-input-dropdown ul li.token-input-selected-dropdown-item { background-color: #eee; }
+
+@media screen and (min-width: 480px) {
+	input, select { max-width: 400px; }
+	fieldset input, fieldset select { max-width: 380px; }
+}
+
 // iPad in portrait mode or larger //
 @media screen and (min-width: 768px) {
 	.image-left { float: left; margin: 0 20px 20px 0; max-width: 50%; }
 	.image-right { float: right; margin: 0 0 20px 20px; max-width: 50%; }
 	.image-center { display: block; width: auto; margin: 0 auto 1.333333em; }
+
+	fieldset { margin: 3em 0; }
+	legend { margin-left: -20px; }
+
+	.form-managed-file .form-file { display: inline; width: 73%; margin-bottom: 0; }
+	.form-managed-file .form-submit { display: inline; width: 25%; margin-left: 2%; margin-bottom: 0; }
+
+	.form-type-password-confirm { max-width: 800px; }
+	.password-strength, div.password-confirm { width: 45%; float: right; }
+	div.password-confirm { margin-top: 2em; }
+	input.password-confirm, input.password-field, div.form-item div.password-suggestions { width: 50%; }
+
+	.filter-help, .filter-wrapper .form-item, .filter-guidelines { padding-left: 20px; padding-right: 20px; }
 }
