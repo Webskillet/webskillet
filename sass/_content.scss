@@ -14,14 +14,18 @@ div.status, .ok { color: $base-text; }
 .tabs-wrapper h2 { margin-bottom: 0; }
 ul.primary { display: inline-block; border: none; border-bottom: 1px solid $dark-gray; padding: 0; margin: 0; position: relative; z-index: 15; }
 ul.primary li { display: block; margin: 0; }
-ul.primary li a { display: block; padding: 10px 20px; font-size: 1.2em; font-weight: bold; text-transform: uppercase; @include border-radius(0); color: #fff; background-color: $dark-gray; border-color: $dark-gray; border-bottom: 0; margin: 0; }
+ul.primary li a { display: block; padding: 10px 20px; font-weight: bold; text-transform: uppercase; @include border-radius(0); color: $dark-gray; background-color: #fff; border-color: $dark-gray; border-bottom: 0; margin: 0; }
 .no-touch ul.primary li a:hover { border-color: $dark-gray; color: #fff; background-color: $medium-gray; }
 ul.primary li.active a { border-color: $dark-gray; border-bottom: 0; color: $dark-gray; }
 .no-touch ul.primary li.active a:hover { color: $dark-gray; background-color: #fff; }
-ul.primary li.active a:before { content: '\f142'; font-family: FontAwesome; font-weight: normal; float: right; margin-left: 0.5em; }
+.js ul.primary li.active a, .no-touch.js ul.primary li.active a:hover { color: #fff; }
+.js ul.primary li.active a:before { content: '\f00d'; font-family: FontAwesome; font-weight: normal; float: right; margin-left: 0.5em; margin-right: -7px; color: $dark-gray; display: block; width: 1em; text-align: center; }
+.no-touch.js ul.primary li.active a:hover:before { color: $dark-gray; }
 
 ul.primary.collapsed li { display: none; }
 ul.primary.collapsed li.active { display: block; }
+ul.primary.collapsed li.active a, .no-touch.js ul.primary.collapsed li.active a:hover { color: $dark-gray; }
+ul.primary.collapsed li.active a:before { content: '\f142'; }
 
 /* 6.3 Nodes */
 
@@ -73,9 +77,9 @@ ul.btn-social { margin: 0; padding: 0; height: 30px; }
 /* 6.7.1 search form & search results page */
 
 #search-block-form { position: relative; }
-#search-block-form .form-item-search-block-form:after { content: '\f002'; font-family: FontAwesome; position: absolute; top: 2px; right: 8px; }
-#search-block-form .form-item-search-block-form input { padding: 5px 2em 5px 5px; max-width: none; margin: 0; }
-#search-block-form input.form-submit { position: absolute; top: 4px; right: 5px; background: transparent; outline: 0; text-indent: -999em; margin-right: 0; padding: 0; height: 100%; width: 2em; }
+#search-block-form .form-item-search-block-form:after { content: '\f002'; font-family: FontAwesome; position: absolute; top: 5px; right: 10px; }
+#search-block-form .form-item-search-block-form input { padding-right: 25px; max-width: none; margin: 0; }
+#search-block-form input.form-submit { position: absolute; top: 0; right: 0; background: transparent; outline: 0; text-indent: -999em; margin-right: 0; padding: 0; height: 100%; width: 2em; }
 
 .search-form .form-text { width: 200px; }
 .search-form #edit-basic, .search-form #edit-advanced { margin-bottom: 3em; }
@@ -91,18 +95,3 @@ ul.btn-social { margin: 0; padding: 0; height: 30px; }
 .context-ui-dialog-open { right: -55px; }
 .book-navigation .menu { margin: 1em 0; }
 
-// iPad in portrait mode or larger
-@media screen and (min-width: 768px) {
-
-	// restore primary tabs to Drupal-like original layout
-/*
-	ul.primary { border-bottom: 1px solid $light-gray; }
-	ul.primary li { display: inline; margin-bottom: 0; }
-	ul.primary li a { @include border-top-left-radius(8px); @include border-top-right-radius(8px); @include border-bottom-left-radius(0); @include border-bottom-right-radius(0); background-color: $light-gray; border-color: $light-gray; padding: 2px 0.75em 0; }
-	ul.primary li.active a { background-color: #fff; border-color: $light-gray $light-gray #fff; }
-	.no-touch ul.primary li a:hover { background-color: #fff; border-color: $light-gray $light-gray #fff; border-bottom: solid 1px #fff; }
-	ul.secondary { line-height: 3em; margin: 0 0 -1px; padding: 0; }
-	ul.secondary a.active { border-bottom: none; }
-*/
-
-}

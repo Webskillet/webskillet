@@ -6,7 +6,7 @@ $sans-serif: Arial,'Helvetica Neue',Helvetica,sans-serif;
 // ### colors
 $very-dark-gray: #333333;
 $dark-gray: #666666;
-$medium-gray: #999999;
+$medium-gray: #9b9b9b;
 $light-gray: #CCCCCC;
 $very-light-gray: #EEEEEE;
 $smoke: #F5F5F5;
@@ -14,6 +14,8 @@ $ws-blue: #44889F;
 $ws-red: #A62A32;
 
 $base-text: $very-dark-gray;
+$link: $ws-blue;
+$link-active: $ws-red;
 
 // ### Social media colors
 $pinterest-red:           #D63532;

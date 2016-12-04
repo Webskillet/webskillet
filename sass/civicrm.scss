@@ -1,0 +1,101 @@
+@import "compass/css3";
+@import "variables";
+
+// CiviCRM formatting
+
+/*
+// if you need to override CiviCRM's status message theming...
+body .crm-container .status,
+body .crm-container .help,
+body .crm-container #help { }
+*/
+
+// hiddenElement not being loaded from civi's css on public-facing pages?
+.hiddenElement { position: absolute; left: -999em; }
+
+body .crm-container a,
+body .crm-container a:link,
+body .crm-container a:visited { color: $link; }
+
+.crm-section { margin: 1em 0; }
+.crm-container label { display: inline; }
+.crm-container .crm-section .label { float: none; width: auto; text-align: left; }
+.crm-container .crm-section .content { margin-left: 0; }
+.price-set-row { margin: 0.5em 0; }
+
+// overwrite CiviCRM's buttons
+.crm-container a.button,
+.crm-container a.button:link,
+.crm-container a.button:visited,
+.crm-container input.crm-form-submit,
+.crm-container .crm-button,
+.crm-container .ui-dialog-buttonset .ui-button,
+#crm-container input[type=button],
+#crm-container input.crm-form-submit-inline,
+#crm-container .crm-button { text-shadow: none; background: inherit; color: inherit; font-size: 1em; margin: 0 1em 0 0; border: none; @include border-radius(0); }
+
+.crm-container a.button i.crm-i,
+.crm-container a.button:link i.crm-i,
+.crm-container a.button:visited i.crm-i,
+.crm-container input.crm-form-submit i.crm-i,
+.crm-container .crm-button i.crm-i,
+.crm-container .ui-dialog-buttonset .ui-button i.crm-i,
+#crm-container input[type=button] i.crm-i,
+#crm-container input.crm-form-submit-inline i.crm-i,
+#crm-container .crm-button i.crm-i { display: none; }
+
+.crm-container .crm-button input[type=button],
+.crm-container .crm-button input.crm-form-submit,
+.crm-container .crm-button input.crm-form-submit-inline,
+#crm-container .crm-button input[type=button],
+#crm-container .crm-button input.crm-form-submit,
+#crm-container .crm-button input.crm-form-submit-inline { padding: 0.5em 1em; color: #fff; background: $very-dark-gray; }
+
+.no-touch .crm-container .crm-button input[type=button]:hover,
+.no-touch .crm-container .crm-button input.crm-form-submit:hover,
+.no-touch .crm-container .crm-button input.crm-form-submit-inline:hover,
+.no-touch #crm-container .crm-button input[type=button]:hover,
+.no-touch #crm-container .crm-button input.crm-form-submit:hover,
+.no-touch #crm-container .crm-button input.crm-form-submit-inline:hover { background: $dark-gray; color: #fff; }
+
+#crm-container #printer-friendly { text-align: right; margin-bottom: 1em; }
+
+// select2
+
+.crm-container.crm-public .select2-container,
+.crm-container.crm-public .select2-results { max-width: 400px; }
+.crm-container.crm-public fieldset .select2-container,
+.crm-container.crm-public fieldset .select2-results { max-width: 380px; }
+.select2-container .select2-choice { height: 36px; line-height: 32px; @include border-radius(0); border-color: $light-gray; background: #fff; }
+.select2-container .select2-choice .select2-arrow { border-color: $light-gray; @include border-radius(0); background: $very-light-gray; }
+.select2-container .select2-choice .select2-arrow b { background-position: 0 4px; }
+.crm-container .select2-container .select2-choice abbr { top: 11px; }
+.select2-dropdown-open.select2-drop-above .select2-choice,
+.select2-dropdown-open.select2-drop-above .select2-choices { border-color: $dark-gray; border-top-color: transparent; @include border-radius(0); background: #fff; }
+.select2-drop-active { border-color: $dark-gray; @include border-radius(0); }
+.select2-drop.select2-drop-above { @include border-radius(0); border-color: $light-gray; }
+.select2-drop.select2-drop-above.select2-drop-active { border-color: $dark-gray; }
+.select2-results .select2-highlighted { background: $dark-gray; }
+.select2-container-active .select2-choice,
+.select2-container-active .select2-choices { border-color: $dark-gray; @include box-shadow(none); }
+.select2-dropdown-open .select2-choice,
+.select2-dropdown-open .select2-choices { @include box-shadow(0 4px 5px rgba(0,0,0,.15)); }
+.select2-results .select2-ajax-error,
+.select2-results .select2-no-results,
+.select2-results .select2-searching,
+.select2-results .select2-selection-limit { background: transparent; padding-left: 0; }
+.select2-search input { background: #fff url(select2.png) 100% -22px no-repeat; }
+
+// increase menu height so it actually covers the adminimal menu,
+// remove outline on li.menumain so it doesn't get outlined when clicked on,
+// and make civicrm link on adminimal menu have appropriate height
+body.adminimal-menu #civicrm-menu { height: 28px; }
+#civicrm-menu > li.menumain { outline: 0; height: 28px !important; }
+body.adminimal-menu #admin-menu .dropdown li.civicrm a { line-height: 20px; }
+
+@media (min-width: 768px) {
+
+	.crm-container .crm-section .label { float: left; width: 23%; text-align: right; }
+	.crm-container .crm-section .content { margin-left: 25%; }
+
+}

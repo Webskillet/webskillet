@@ -174,7 +174,7 @@ th, td {
 }
 
 thead tr {
-  background: #EEEEEE;
+  background: #CCCCCC;
   border-bottom: 1px solid #CCCCCC;
 }
 
@@ -185,6 +185,10 @@ tr.even, tr.odd {
 
 th.active img {
   margin-left: 0.333em;
+}
+
+tr.selected td {
+  background: #EEEEEE;
 }
 
 input, select, textarea, ul.token-input-list {
@@ -228,6 +232,10 @@ input:focus, select:focus, textarea:focus {
 
 input[type="checkbox"], input[type="radio"], input[type="submit"], input[type="image"] {
   width: auto;
+}
+
+input[type=checkbox], input[type=radio], input[type=checkbox]#edit-delete {
+  margin-right: 0.25em;
 }
 
 input[type="image"] {
@@ -404,7 +412,7 @@ fieldset .form-item {
   line-height: 1.1666em;
   display: block;
   clear: left;
-  color: #999999;
+  color: #9b9b9b;
   margin-top: 5px;
 }
 
@@ -758,6 +766,11 @@ body.admin-menu {
 /* 3.0 Headers and Highlighted */
 #header {
   position: relative;
+}
+
+#header #logo {
+  display: block;
+  width: 160px;
 }
 
 #header #logo img {
@@ -1239,14 +1252,13 @@ ul.primary li {
 ul.primary li a {
   display: block;
   padding: 10px 20px;
-  font-size: 1.2em;
   font-weight: bold;
   text-transform: uppercase;
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
   border-radius: 0;
-  color: #fff;
-  background-color: #666666;
+  color: #666666;
+  background-color: #fff;
   border-color: #666666;
   border-bottom: 0;
   margin: 0;
@@ -1255,7 +1267,7 @@ ul.primary li a {
 .no-touch ul.primary li a:hover {
   border-color: #666666;
   color: #fff;
-  background-color: #999999;
+  background-color: #9b9b9b;
 }
 
 ul.primary li.active a {
@@ -1269,12 +1281,25 @@ ul.primary li.active a {
   background-color: #fff;
 }
 
-ul.primary li.active a:before {
-  content: '\f142';
+.js ul.primary li.active a, .no-touch.js ul.primary li.active a:hover {
+  color: #fff;
+}
+
+.js ul.primary li.active a:before {
+  content: '\f00d';
   font-family: FontAwesome;
   font-weight: normal;
   float: right;
   margin-left: 0.5em;
+  margin-right: -7px;
+  color: #666666;
+  display: block;
+  width: 1em;
+  text-align: center;
+}
+
+.no-touch.js ul.primary li.active a:hover:before {
+  color: #666666;
 }
 
 ul.primary.collapsed li {
@@ -1283,6 +1308,14 @@ ul.primary.collapsed li {
 
 ul.primary.collapsed li.active {
   display: block;
+}
+
+ul.primary.collapsed li.active a, .no-touch.js ul.primary.collapsed li.active a:hover {
+  color: #666666;
+}
+
+ul.primary.collapsed li.active a:before {
+  content: '\f142';
 }
 
 /* 6.3 Nodes */
@@ -1389,20 +1422,20 @@ ul.btn-social {
   content: '\f002';
   font-family: FontAwesome;
   position: absolute;
-  top: 2px;
-  right: 8px;
+  top: 5px;
+  right: 10px;
 }
 
 #search-block-form .form-item-search-block-form input {
-  padding: 5px 2em 5px 5px;
+  padding-right: 25px;
   max-width: none;
   margin: 0;
 }
 
 #search-block-form input.form-submit {
   position: absolute;
-  top: 4px;
-  right: 5px;
+  top: 0;
+  right: 0;
   background: transparent;
   outline: 0;
   text-indent: -999em;
@@ -1451,17 +1484,6 @@ ul.btn-social {
   margin: 1em 0;
 }
 
-@media screen and (min-width: 768px) {
-  /*
-  	ul.primary { border-bottom: 1px solid $light-gray; }
-  	ul.primary li { display: inline; margin-bottom: 0; }
-  	ul.primary li a { @include border-top-left-radius(8px); @include border-top-right-radius(8px); @include border-bottom-left-radius(0); @include border-bottom-right-radius(0); background-color: $light-gray; border-color: $light-gray; padding: 2px 0.75em 0; }
-  	ul.primary li.active a { background-color: #fff; border-color: $light-gray $light-gray #fff; }
-  	.no-touch ul.primary li a:hover { background-color: #fff; border-color: $light-gray $light-gray #fff; border-bottom: solid 1px #fff; }
-  	ul.secondary { line-height: 3em; margin: 0 0 -1px; padding: 0; }
-  	ul.secondary a.active { border-bottom: none; }
-  */
-}
 /* 6.0 Sidebars */
 .sidebar .block {
   margin-bottom: 2em;

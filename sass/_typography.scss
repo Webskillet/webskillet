@@ -41,10 +41,10 @@ ul li.leaf, ul li.collapsed, ul li.expanded { list-style: none outside none; }
 
 // 1.5 Links
 a { text-decoration: none; }
-a:link { color: $ws-blue; }
-a:visited { color: $ws-blue; }
-.no-touch a:hover { color: $ws-red; }
-a:active { color: $ws-blue; }
+a:link { color: $link; }
+a:visited { color: $link; }
+.no-touch a:hover { color: $link-active; }
+a:active { color: $link; }
 
 // 1.6 Images
 img { max-width: 100%; height: auto !important; }
@@ -54,9 +54,10 @@ img { max-width: 100%; height: auto !important; }
 
 // 1.7 Tables
 th, td { padding: 10px; }
-thead tr { background: $very-light-gray; border-bottom: 1px solid $light-gray; }
+thead tr { background: $light-gray; border-bottom: 1px solid $light-gray; }
 tr.even, tr.odd { background: $smoke; border-bottom: 1px solid $light-gray; }
 th.active img { margin-left: 0.333em; }
+tr.selected td { background: $very-light-gray; }
 
 // 1.8 Form elements
 input, select, textarea, ul.token-input-list { border: 1px solid $light-gray; color: $base-text; padding: 0.5em; outline: 0; background: #fff; }
@@ -67,6 +68,7 @@ select[multiple] { padding-right: 0.5em; background: #fff none; }
 textarea { width: 100%; }
 input:focus, select:focus, textarea:focus { border-color: $base-text; }
 input[type="checkbox"],input[type="radio"],input[type="submit"],input[type="image"] { width: auto; }
+input[type=checkbox], input[type=radio], input[type=checkbox]#edit-delete { margin-right: 0.25em; }
 input[type="image"] { border: 0; outline: invert none medium; }
 input[type="search"] { -webkit-appearance: none; moz-appearance: none; }
 fieldset { margin-top: 3em; margin-left: -20px; margin-right: -20px; margin-bottom: 3em; padding: 0 20px; border: none; background: $smoke; }

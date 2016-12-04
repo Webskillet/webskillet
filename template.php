@@ -69,6 +69,13 @@ function webskillet_preprocess_html(&$variables) {
 	));
   }
 
+  // if CiviCRM is enabled, load CiviCRM-specific css on civicrm pages
+  if (module_exists('civicrm')) {
+    drupal_add_css( drupal_get_path('theme', 'webskillet') . '/css/civicrm.css', array(
+      'group' => CSS_THEME,
+    ));
+  }
+
   // load fontawesome
   drupal_add_js('https://use.fontawesome.com/1a216137ba.js',array(
 	  'type' => 'external',

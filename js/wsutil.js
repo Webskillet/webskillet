@@ -242,6 +242,7 @@ wsUtil = {
 		}
 
 		// primary tabs
+		jQuery('.tabs-wrapper ul.primary li.active').remove().prependTo('.tabs-wrapper ul.primary');
 		var primaryTabsWidth = jQuery('.tabs-wrapper ul.primary').width();
 		if (primaryTabsWidth < 200) { primaryTabsWidth = 200; }
 		jQuery('.tabs-wrapper ul.primary').width(primaryTabsWidth).addClass('collapsed');

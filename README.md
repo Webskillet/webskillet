@@ -4,13 +4,20 @@ Webskillet base theme
 Mobile-first HTML5 base theme for Drupal 7
 
 Plays well with the following modules:
+* [__Adminimal Administration Menu__](https://www.drupal.org/project/adminimal_admin_menu): Stays out of the way of the responsive version of the Adminimal Administration menu
+* [__CiviCRM__](https://civicrm.org/): Provides basic responsive theming for CiviCRM public pages, removes gradients and curved corners from select2 options, and resolves a few ways in which CiviCRM's menu doesn't integrate nicely with Adminimal Administration Menu
 * [__Special Menu Items__](https://www.drupal.org/project/special_menu_items): "nolink" menu items which have child menu links will trigger pull-downs if clicked on.
 * [__OM Maximenu__](https://www.drupal.org/project/om_maximenu): if maximenu block with "no style" is placed in navigation region, will make the maximenu mobile-friendly. In order to ensure expected behavior, select mouse action of "Click (fast)," skin of "No Style" and style of "Dropdown," and make all menu links that have blocks attached to them into &lt;span&gt; elements by making sure the Title Options > Path field is empty.
 * [__Hybridauth Social Login__](https://www.drupal.org/project/hybridauth): changes the confusing "Hybridauth Identities" tabs and links to "Social Identities"
 
 Feature requests should be directed to [Jonathan Kissam](http://jonathankissam.com/about#contact)
 
-7.x-1.0-rc1 - December 2016
+7.x-1.0-rc2 - December 4 2016
+
+* improved primary tabs dropdown functionality
+* added basic responsive theming for public-facing CiviCRM pages
+
+7.x-1.0-rc1 - December 3 2016
 
 * plays nicely with Adminimal Administration Menu's responsive menu
 * improved and responsive theming of form elements
