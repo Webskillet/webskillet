@@ -16,6 +16,7 @@ Feature requests should be directed to [Jonathan Kissam](http://jonathankissam.c
 
 * improved primary tabs dropdown functionality
 * added basic responsive theming for public-facing CiviCRM pages
+* added logo and screenshot
 
 7.x-1.0-rc1 - December 3 2016
 

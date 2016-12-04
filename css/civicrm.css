@@ -213,4 +213,8 @@ body.adminimal-menu #admin-menu .dropdown li.civicrm a {
   .crm-container .crm-section .content {
     margin-left: 25%;
   }
+
+  .crm-container .crm-section .clear {
+    clear: both;
+  }
 }
