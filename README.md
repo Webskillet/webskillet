@@ -12,6 +12,12 @@ Plays well with the following modules:
 
 Feature requests should be directed to [Jonathan Kissam](http://jonathankissam.com/about#contact)
 
+7.x-1.0-rc3 - December 5 2016
+
+* added editor.scss and editor.css to webskillet_child theme
+* added a.button and a.button-cta to ckeditor.styles.js
+* added ckeditor.style.js to webskillet_child theme
+
 7.x-1.0-rc2 - December 4 2016
 
 * improved primary tabs dropdown functionality

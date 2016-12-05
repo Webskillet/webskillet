@@ -1,0 +1,6 @@
+@import url("../css/screen.css");
+@import url("child.css");
+body {
+  padding-left: 15px;
+  padding-right: 15px;
+}

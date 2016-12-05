@@ -1,0 +1,15 @@
+// editor.css - imports parent theme css AND child theme css
+// if child theme css includes things you don't want in your editor,
+// you can remove the @import url('child.css') and
+// import a particular scss file (i.e., a _typography.scss)
+// also, add links to Google fonts, etc. here
+
+// if you create a child theme and move it into the sites/all/themes folder,
+// change this line to:
+// @import url('../../webskillet/css/screen.css');
+@import url('../css/screen.css');
+
+@import url('child.css');
+
+// create some white space on the left and right side of the ckeditor
+body { padding-left: 15px; padding-right: 15px; }
