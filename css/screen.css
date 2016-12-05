@@ -903,6 +903,10 @@ ul.main-menu li.menu-dismiss {
   padding-right: 2em;
 }
 
+.mobile-style-default #navigation li ul.main-menu li.first {
+  padding-right: 0;
+}
+
 .mobile-style-default #navigation ul.main-menu li.menu-dismiss {
   font-size: 1.5em;
   border-bottom: none;
