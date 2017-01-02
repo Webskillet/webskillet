@@ -209,7 +209,7 @@ select {
   -moz-appearance: none;
   -webkit-appearance: none;
   -webkit-border-radius: 0;
-  line-height: 1.33333em;
+  line-height: 1.3334em;
   background: #fff url(../images/arrow-select.png) no-repeat right 48%;
   padding-right: 30px;
 }

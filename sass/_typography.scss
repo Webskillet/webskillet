@@ -62,7 +62,7 @@ tr.selected td { background: $very-light-gray; }
 // 1.8 Form elements
 input, select, textarea, ul.token-input-list { border: 1px solid $light-gray; color: $base-text; padding: 0.5em; outline: 0; background: #fff; }
 input { width: 100%; }
-select { max-width: 100%; position: relative; -moz-appearance: none; -webkit-appearance: none; -webkit-border-radius: 0; line-height: 1.33333em; background: #fff url(../images/arrow-select.png) no-repeat right 48%; padding-right: 30px; }
+select { max-width: 100%; position: relative; -moz-appearance: none; -webkit-appearance: none; -webkit-border-radius: 0; line-height: 1.3334em; background: #fff url(../images/arrow-select.png) no-repeat right 48%; padding-right: 30px; }
 select option { max-width: 100%; }
 select[multiple] { padding-right: 0.5em; background: #fff none; }
 textarea { width: 100%; }
