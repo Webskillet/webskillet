@@ -12,6 +12,10 @@ Plays well with the following modules:
 
 Feature requests should be directed to [Jonathan Kissam](http://jonathankissam.com/about#contact)
 
+7.x-1.0-rc4 - January 2 2017
+
+* added line-height to select elements so they match the height of text inputs
+
 7.x-1.0-rc3 - December 5 2016
 
 * added editor.scss and editor.css to webskillet_child theme
