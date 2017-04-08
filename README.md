@@ -12,6 +12,10 @@ Plays well with the following modules:
 
 Feature requests should be directed to [Jonathan Kissam](http://jonathankissam.com/about#contact)
 
+7.x-1.0-rc5 - April 7 2017
+
+* added `-webkit-overflow-scrolling: touch;` to `#wrapper` to fix scrolling issues on iOS devices
+
 7.x-1.0-rc4 - January 2 2017
 
 * added line-height to select elements so they match the height of text inputs

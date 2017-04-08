@@ -737,6 +737,7 @@ body.admin-menu {
   z-index: 5;
   background: #fff;
   overflow-x: visible;
+  -webkit-overflow-scrolling: touch;
 }
 
 .admin-menu #wrapper {

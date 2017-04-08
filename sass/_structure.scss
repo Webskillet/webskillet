@@ -3,7 +3,7 @@ body.admin-menu { margin-top: 0 !important; }
 .chromeframe { margin: 0.2em 0; background: $light-gray; color: $base-text; padding: 0.2em 0; }
 // our touch javascript adds user-select: none to the body element, so override that on next level of DOM
 #wrapper, .reveal, #modals-wrapper { -webkit-user-select: auto; -moz-user-select: auto; -ms-user-select: auto; user-select: auto; }
-#wrapper { position: fixed; left: 0; right: 0; top: 0; bottom: 0; z-index: 5; background: #fff; overflow-x: visible; }
+#wrapper { position: fixed; left: 0; right: 0; top: 0; bottom: 0; z-index: 5; background: #fff; overflow-x: visible; -webkit-overflow-scrolling: touch; }
 .admin-menu #wrapper { top: 29px; }
 #wrapper-inner { position: relative; width: 100%; height: 100%; overflow-y: auto; }
 #skip-link { position: absolute; }
